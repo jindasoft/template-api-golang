@@ -1,0 +1,19 @@
+name: Golang GitOps (prod)
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  uses_workflow_call:
+    permissions:
+      packages: write
+      contents: read
+    uses: jindasoft/jinda-actions/.github/workflows/golang_gitops_prod.yml@v1.0.0
+    with:
+      gitops_repo: mokochu/jinda-gitops-prod
+    secrets:
+      ci_token: ${{ secrets.GITOPS_CI_TOKEN }}
+      cd_token: ${{ secrets.GITOPS_CD_TOKEN }}
+      gcp_artifact_token: ${{ secrets.GITOPS_GCP_ARTIFACT_TOKEN }}
