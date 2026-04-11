@@ -1,0 +1,47 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go workspace and module files
+go.work
+go.work.sum
+
+# Dependency directories
+vendor/
+Godeps/
+
+# Temporary files and folders
+tmp/
+temp/
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Build output and project-specific
+main
+*templ.go
+secret*.yaml
+!secret.*example*
+!secret.go
+internal/authorize/mocks/
+bin/
+build/
+dist/
