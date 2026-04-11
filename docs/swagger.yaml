@@ -1,0 +1,285 @@
+definitions:
+  internal_healthz.livenessStats:
+    properties:
+      message:
+        example: Liveness healthy
+        type: string
+      success:
+        example: true
+        type: boolean
+      type:
+        example: liveness
+        type: string
+    type: object
+  internal_healthz.readinessStats:
+    properties:
+      message:
+        example: Readiness healthy
+        type: string
+      success:
+        example: true
+        type: boolean
+      type:
+        example: readiness
+        type: string
+    type: object
+  template-api-examples_internal_api_xxxxxs_models.GetXxxxxByIDResponse:
+    properties:
+      code:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      status:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  template-api-examples_internal_api_xxxxxs_models.GetXxxxxPagingResponse:
+    properties:
+      code:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      status:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  template-api-examples_internal_api_xxxxxs_models.PostXxxxxRequest:
+    properties:
+      code:
+        type: string
+      name_en:
+        type: string
+      name_th:
+        type: string
+    required:
+    - code
+    - name_en
+    - name_th
+    type: object
+  template-api-examples_internal_api_xxxxxs_models.PostXxxxxResponse:
+    properties:
+      id:
+        type: string
+    type: object
+  template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse:
+    properties:
+      data:
+        $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.GetXxxxxByIDResponse'
+      message:
+        example: Successful.
+        type: string
+      success:
+        example: true
+        type: boolean
+      type:
+        example: success
+        type: string
+    type: object
+  template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.GetXxxxxPagingResponse'
+        type: array
+      message:
+        example: Successful.
+        type: string
+      meta:
+        $ref: '#/definitions/xres.PagingMeta'
+      success:
+        example: true
+        type: boolean
+      type:
+        example: success
+        type: string
+    type: object
+  template-api-examples_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse:
+    properties:
+      data:
+        $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.PostXxxxxResponse'
+      message:
+        example: Created.
+        type: string
+      success:
+        example: true
+        type: boolean
+      type:
+        example: created
+        type: string
+    type: object
+  xres.BadRequestResponse:
+    properties:
+      message:
+        example: Bad request.
+        type: string
+      success:
+        example: false
+        type: boolean
+      type:
+        example: bad_request
+        type: string
+    type: object
+  xres.PagingMeta:
+    properties:
+      limit:
+        example: 10
+        type: integer
+      offset:
+        example: 0
+        type: integer
+      total_items:
+        example: 100
+        type: integer
+    type: object
+  xres.UnprocessableEntityResponse:
+    properties:
+      message:
+        example: Unprocessable entity.
+        type: string
+      success:
+        example: false
+        type: boolean
+      type:
+        example: unprocessable_entity
+        type: string
+    type: object
+host: localhost:9000
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: Template API Examples
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Template API
+  version: 1.0.0
+paths:
+  /liveness:
+    get:
+      description: Checks if the application is alive and running (heartbeat check)
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/internal_healthz.livenessStats'
+      summary: Get liveness health status
+      tags:
+      - health
+  /readiness:
+    get:
+      description: Checks if the application is ready to accept traffic (dependencies
+        ready)
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/internal_healthz.readinessStats'
+      summary: Get readiness health status
+      tags:
+      - health
+  /v1/xxxxx:
+    get:
+      consumes:
+      - application/json
+      description: Get xxxxx records with pagination support
+      parameters:
+      - default: 1
+        description: Page number
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: Items per page
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse'
+        "400":
+          description: 'type: bind_data_error, validation_error'
+          schema:
+            $ref: '#/definitions/xres.BadRequestResponse'
+        "422":
+          description: 'type: operation_failed'
+          schema:
+            $ref: '#/definitions/xres.UnprocessableEntityResponse'
+      summary: Get Xxxxx with pagination
+      tags:
+      - xxxxx
+    post:
+      consumes:
+      - application/json
+      description: Create a new xxxxx record
+      parameters:
+      - description: Create xxxxx request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.PostXxxxxRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse'
+        "400":
+          description: 'type: bind_data_error, validation_error'
+          schema:
+            $ref: '#/definitions/xres.BadRequestResponse'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/xres.UnprocessableEntityResponse'
+      summary: Create a new Xxxxx
+      tags:
+      - xxxxx
+  /v1/xxxxx/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get a specific xxxxx record by ID
+      parameters:
+      - description: Xxxxx ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse'
+        "422":
+          description: 'type: operation_failed'
+          schema:
+            $ref: '#/definitions/xres.UnprocessableEntityResponse'
+      summary: Get Xxxxx by ID
+      tags:
+      - xxxxx
+swagger: "2.0"

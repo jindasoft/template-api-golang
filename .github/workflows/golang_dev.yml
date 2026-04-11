@@ -1,0 +1,17 @@
+name: Golang GitOps (dev)
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  uses_workflow_call:
+    permissions:
+      packages: write
+      contents: read
+    uses: jindasoft/jinda-actions/.github/workflows/golang_gitops_dev.yml@v1.0.0
+    with:
+      gitops_repo: jindasoft/jinda-gitops-dev
+    secrets:
+      token: ${{ secrets.GITOPS_NONPROD }}
