@@ -4,12 +4,11 @@ go 1.26.2
 
 require (
 	github.com/go-playground/validator/v10 v10.25.0
-	github.com/google/uuid v1.6.0
+	github.com/jindasoft/jinda-platforms v0.0.0-20260411090610-4201e6ea79b2
 	github.com/labstack/echo/v5 v5.0.4
 	github.com/spf13/viper v1.20.0
 	github.com/swaggo/echo-swagger v1.5.0
 	github.com/swaggo/swag v1.16.6
-	github.com/jindasoft/jinda-platforms v1.18.1-0.20260311124916-5ebbd5f22705
 	go.uber.org/zap v1.27.0
 )
 
@@ -34,6 +33,7 @@ require (
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-viper/mapstructure/v2 v2.4.0 // indirect
 	github.com/golang-jwt/jwt/v5 v5.3.1 // indirect
+	github.com/google/uuid v1.6.0 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
