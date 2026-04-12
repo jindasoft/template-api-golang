@@ -2,7 +2,7 @@ package repositories
 
 import (
 	"context"
-	"template-api-examples/internal/entities"
+	"template-api-golang/internal/entities"
 )
 
 func (r *repository) FindXxxxxByID(ctx context.Context, id string) (*entities.Xxxxx, error) {

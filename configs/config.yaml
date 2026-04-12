@@ -1,5 +1,5 @@
 app:
-  name: template-api-examples
+  name: template-api-golang
   kv_name: tgr-dev
   env: local # local, dev, sit, uat, prod
   port: 9000

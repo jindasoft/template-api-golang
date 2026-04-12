@@ -23,7 +23,7 @@ definitions:
         example: readiness
         type: string
     type: object
-  template-api-examples_internal_api_xxxxxs_models.GetXxxxxByIDResponse:
+  template-api-golang_internal_api_xxxxxs_models.GetXxxxxByIDResponse:
     properties:
       code:
         type: string
@@ -38,7 +38,7 @@ definitions:
       updated_at:
         type: string
     type: object
-  template-api-examples_internal_api_xxxxxs_models.GetXxxxxPagingResponse:
+  template-api-golang_internal_api_xxxxxs_models.GetXxxxxPagingResponse:
     properties:
       code:
         type: string
@@ -53,7 +53,7 @@ definitions:
       updated_at:
         type: string
     type: object
-  template-api-examples_internal_api_xxxxxs_models.PostXxxxxRequest:
+  template-api-golang_internal_api_xxxxxs_models.PostXxxxxRequest:
     properties:
       code:
         type: string
@@ -66,15 +66,15 @@ definitions:
     - name_en
     - name_th
     type: object
-  template-api-examples_internal_api_xxxxxs_models.PostXxxxxResponse:
+  template-api-golang_internal_api_xxxxxs_models.PostXxxxxResponse:
     properties:
       id:
         type: string
     type: object
-  template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse:
+  template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse:
     properties:
       data:
-        $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.GetXxxxxByIDResponse'
+        $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.GetXxxxxByIDResponse'
       message:
         example: Successful.
         type: string
@@ -85,11 +85,11 @@ definitions:
         example: success
         type: string
     type: object
-  template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse:
+  template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse:
     properties:
       data:
         items:
-          $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.GetXxxxxPagingResponse'
+          $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.GetXxxxxPagingResponse'
         type: array
       message:
         example: Successful.
@@ -103,10 +103,10 @@ definitions:
         example: success
         type: string
     type: object
-  template-api-examples_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse:
+  template-api-golang_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse:
     properties:
       data:
-        $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.PostXxxxxResponse'
+        $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.PostXxxxxResponse'
       message:
         example: Created.
         type: string
@@ -216,7 +216,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse'
+            $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse'
         "400":
           description: 'type: bind_data_error, validation_error'
           schema:
@@ -238,14 +238,14 @@ paths:
         name: request
         required: true
         schema:
-          $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.PostXxxxxRequest'
+          $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.PostXxxxxRequest'
       produces:
       - application/json
       responses:
         "201":
           description: Created
           schema:
-            $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse'
+            $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse'
         "400":
           description: 'type: bind_data_error, validation_error'
           schema:
@@ -274,7 +274,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse'
+            $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse'
         "422":
           description: 'type: operation_failed'
           schema:

@@ -3,7 +3,7 @@ package services
 import (
 	"context"
 	"fmt"
-	"template-api-examples/internal/api/xxxxxs/models"
+	"template-api-golang/internal/api/xxxxxs/models"
 
 	"github.com/jindasoft/jinda-platforms/xdate"
 )

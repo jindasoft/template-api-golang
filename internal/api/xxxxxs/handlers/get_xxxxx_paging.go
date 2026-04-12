@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"template-api-examples/internal/api/xxxxxs/models"
+	"template-api-golang/internal/api/xxxxxs/models"
 
 	"github.com/jindasoft/jinda-platforms/xres"
 	"github.com/labstack/echo/v5"

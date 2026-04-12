@@ -1,9 +1,9 @@
 package routes
 
 import (
-	"template-api-examples/internal/api/xxxxxs/handlers"
-	"template-api-examples/internal/api/xxxxxs/repositories"
-	"template-api-examples/internal/api/xxxxxs/services"
+	"template-api-golang/internal/api/xxxxxs/handlers"
+	"template-api-golang/internal/api/xxxxxs/repositories"
+	"template-api-golang/internal/api/xxxxxs/services"
 
 	"github.com/labstack/echo/v5"
 )

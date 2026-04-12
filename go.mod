@@ -1,4 +1,4 @@
-module template-api-examples
+module template-api-golang
 
 go 1.26.2
 
