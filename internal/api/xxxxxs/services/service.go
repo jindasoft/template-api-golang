@@ -2,8 +2,8 @@ package services
 
 import (
 	"context"
-	"template-api-examples/internal/api/xxxxxs/models"
-	"template-api-examples/internal/api/xxxxxs/repositories"
+	"template-api-golang/internal/api/xxxxxs/models"
+	"template-api-golang/internal/api/xxxxxs/repositories"
 )
 
 type XxxxxService interface {

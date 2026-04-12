@@ -2,7 +2,7 @@ package repositories
 
 import (
 	"context"
-	"template-api-examples/internal/entities"
+	"template-api-golang/internal/entities"
 )
 
 func (r *repository) FindXxxxxPaging(ctx context.Context) (*[]entities.Xxxxx, error) {

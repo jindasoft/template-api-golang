@@ -21,12 +21,12 @@ clean:
 
 uplib:
 	@echo "Upgrading libraries..."
-	@go get -u github.com/jindasoft/jinda-platforms@latest
+	@go get -u github.com/jindasoft/jinda-platform@latest
 	@go mod tidy
 
 uplibdev:
 	@echo "Upgrading libraries..."
-	@go get -u github.com/jindasoft/jinda-platforms@develop
+	@go get -u github.com/jindasoft/jinda-platform@develop
 	@go mod tidy
 
 vuln:

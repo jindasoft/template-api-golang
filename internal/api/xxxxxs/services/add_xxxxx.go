@@ -2,7 +2,7 @@ package services
 
 import (
 	"context"
-	"template-api-examples/internal/api/xxxxxs/models"
+	"template-api-golang/internal/api/xxxxxs/models"
 )
 
 func (s *service) AddXxxxx(ctx context.Context, req *models.PostXxxxxRequest) (*models.PostXxxxxResponse, error) {

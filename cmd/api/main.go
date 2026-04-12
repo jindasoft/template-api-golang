@@ -2,8 +2,8 @@ package main
 
 import (
 	"log"
-	_ "template-api-examples/docs"
-	"template-api-examples/internal/server"
+	_ "template-api-golang/docs"
+	"template-api-golang/internal/server"
 )
 
 // @title Template API

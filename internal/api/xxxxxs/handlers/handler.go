@@ -1,6 +1,6 @@
 package handlers
 
-import "template-api-examples/internal/api/xxxxxs/services"
+import "template-api-golang/internal/api/xxxxxs/services"
 
 type handler struct {
 	service services.XxxxxService

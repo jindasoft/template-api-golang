@@ -1,11 +1,11 @@
 package server
 
 import (
-	"template-api-examples/configs"
+	"template-api-golang/configs"
 
-	xxxxxs "template-api-examples/internal/api/xxxxxs/routes"
-	"template-api-examples/internal/healthz"
-	"template-api-examples/internal/middlewares"
+	xxxxxs "template-api-golang/internal/api/xxxxxs/routes"
+	"template-api-golang/internal/healthz"
+	"template-api-golang/internal/middlewares"
 
 	"github.com/jindasoft/jinda-platforms/xmdw"
 	"github.com/labstack/echo/v5"

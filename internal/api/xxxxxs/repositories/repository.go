@@ -2,7 +2,7 @@ package repositories
 
 import (
 	"context"
-	"template-api-examples/internal/entities"
+	"template-api-golang/internal/entities"
 )
 
 type XxxxxRepository interface {

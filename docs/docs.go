@@ -97,7 +97,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse"
+                            "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse"
                         }
                     },
                     "400": {
@@ -133,7 +133,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/template-api-examples_internal_api_xxxxxs_models.PostXxxxxRequest"
+                            "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.PostXxxxxRequest"
                         }
                     }
                 ],
@@ -141,7 +141,7 @@ const docTemplate = `{
                     "201": {
                         "description": "Created",
                         "schema": {
-                            "$ref": "#/definitions/template-api-examples_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse"
+                            "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse"
                         }
                     },
                     "400": {
@@ -185,7 +185,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse"
+                            "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse"
                         }
                     },
                     "422": {
@@ -233,7 +233,7 @@ const docTemplate = `{
                 }
             }
         },
-        "template-api-examples_internal_api_xxxxxs_models.GetXxxxxByIDResponse": {
+        "template-api-golang_internal_api_xxxxxs_models.GetXxxxxByIDResponse": {
             "type": "object",
             "properties": {
                 "code": {
@@ -256,7 +256,7 @@ const docTemplate = `{
                 }
             }
         },
-        "template-api-examples_internal_api_xxxxxs_models.GetXxxxxPagingResponse": {
+        "template-api-golang_internal_api_xxxxxs_models.GetXxxxxPagingResponse": {
             "type": "object",
             "properties": {
                 "code": {
@@ -279,7 +279,7 @@ const docTemplate = `{
                 }
             }
         },
-        "template-api-examples_internal_api_xxxxxs_models.PostXxxxxRequest": {
+        "template-api-golang_internal_api_xxxxxs_models.PostXxxxxRequest": {
             "type": "object",
             "required": [
                 "code",
@@ -298,7 +298,7 @@ const docTemplate = `{
                 }
             }
         },
-        "template-api-examples_internal_api_xxxxxs_models.PostXxxxxResponse": {
+        "template-api-golang_internal_api_xxxxxs_models.PostXxxxxResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -306,11 +306,11 @@ const docTemplate = `{
                 }
             }
         },
-        "template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse": {
+        "template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse": {
             "type": "object",
             "properties": {
                 "data": {
-                    "$ref": "#/definitions/template-api-examples_internal_api_xxxxxs_models.GetXxxxxByIDResponse"
+                    "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.GetXxxxxByIDResponse"
                 },
                 "message": {
                     "type": "string",
@@ -326,13 +326,13 @@ const docTemplate = `{
                 }
             }
         },
-        "template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse": {
+        "template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse": {
             "type": "object",
             "properties": {
                 "data": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/template-api-examples_internal_api_xxxxxs_models.GetXxxxxPagingResponse"
+                        "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.GetXxxxxPagingResponse"
                     }
                 },
                 "message": {
@@ -352,11 +352,11 @@ const docTemplate = `{
                 }
             }
         },
-        "template-api-examples_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse": {
+        "template-api-golang_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse": {
             "type": "object",
             "properties": {
                 "data": {
-                    "$ref": "#/definitions/template-api-examples_internal_api_xxxxxs_models.PostXxxxxResponse"
+                    "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.PostXxxxxResponse"
                 },
                 "message": {
                     "type": "string",

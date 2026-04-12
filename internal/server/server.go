@@ -3,7 +3,7 @@ package server
 import (
 	"fmt"
 	"net/http"
-	"template-api-examples/configs"
+	"template-api-golang/configs"
 
 	"github.com/jindasoft/jinda-platforms/xlogger"
 )
