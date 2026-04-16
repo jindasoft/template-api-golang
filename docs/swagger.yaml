@@ -27,30 +27,18 @@ definitions:
     properties:
       code:
         type: string
-      created_at:
-        type: string
       id:
         type: string
       name:
-        type: string
-      status:
-        type: string
-      updated_at:
         type: string
     type: object
   template-api-golang_internal_api_xxxxxs_models.GetXxxxxPagingResponse:
     properties:
       code:
         type: string
-      created_at:
-        type: string
       id:
         type: string
       name:
-        type: string
-      status:
-        type: string
-      updated_at:
         type: string
     type: object
   template-api-golang_internal_api_xxxxxs_models.PostXxxxxRequest:

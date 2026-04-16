@@ -230,19 +230,10 @@ const docTemplate = `{
                 "code": {
                     "type": "string"
                 },
-                "created_at": {
-                    "type": "string"
-                },
                 "id": {
                     "type": "string"
                 },
                 "name": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "updated_at": {
                     "type": "string"
                 }
             }
@@ -253,19 +244,10 @@ const docTemplate = `{
                 "code": {
                     "type": "string"
                 },
-                "created_at": {
-                    "type": "string"
-                },
                 "id": {
                     "type": "string"
                 },
                 "name": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "updated_at": {
                     "type": "string"
                 }
             }
