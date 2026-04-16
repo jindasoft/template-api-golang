@@ -9,16 +9,7 @@ const docTemplate = `{
     "info": {
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
-        "termsOfService": "http://swagger.io/terms/",
-        "contact": {
-            "name": "API Support",
-            "url": "http://www.swagger.io/support",
-            "email": "support@swagger.io"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
+        "contact": {},
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
@@ -64,7 +55,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/v1/xxxxx": {
+        "/v1/xxxxxs": {
             "get": {
                 "description": "Get xxxxx records with pagination support",
                 "consumes": [
@@ -74,7 +65,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "xxxxx"
+                    "xxxxxs"
                 ],
                 "summary": "Get Xxxxx with pagination",
                 "parameters": [
@@ -123,7 +114,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "xxxxx"
+                    "xxxxxs"
                 ],
                 "summary": "Create a new Xxxxx",
                 "parameters": [
@@ -159,7 +150,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/v1/xxxxx/{id}": {
+        "/v1/xxxxxs/{id}": {
             "get": {
                 "description": "Get a specific xxxxx record by ID",
                 "consumes": [
@@ -169,7 +160,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "xxxxx"
+                    "xxxxxs"
                 ],
                 "summary": "Get Xxxxx by ID",
                 "parameters": [
@@ -239,19 +230,10 @@ const docTemplate = `{
                 "code": {
                     "type": "string"
                 },
-                "created_at": {
-                    "type": "string"
-                },
                 "id": {
                     "type": "string"
                 },
                 "name": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "updated_at": {
                     "type": "string"
                 }
             }
@@ -262,19 +244,10 @@ const docTemplate = `{
                 "code": {
                     "type": "string"
                 },
-                "created_at": {
-                    "type": "string"
-                },
                 "id": {
                     "type": "string"
                 },
                 "name": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "updated_at": {
                     "type": "string"
                 }
             }
@@ -428,12 +401,12 @@ const docTemplate = `{
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
-	Version:          "1.0.0",
-	Host:             "localhost:9000",
+	Version:          "",
+	Host:             "",
 	BasePath:         "",
 	Schemes:          []string{},
-	Title:            "Template API",
-	Description:      "Template API Examples",
+	Title:            "",
+	Description:      "",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

@@ -10,7 +10,7 @@ import (
 // GetXxxxxPaging godoc
 // @Summary Get Xxxxx with pagination
 // @Description Get xxxxx records with pagination support
-// @Tags xxxxx
+// @Tags xxxxxs
 // @Accept json
 // @Produce json
 // @Param page query int false "Page number" default(1)
@@ -18,7 +18,7 @@ import (
 // @Success 200 {object} models.SwaggerGetXxxxxPagingResponse
 // @Failure 400 {object} xres.BadRequestResponse "type: bind_data_error, validation_error"
 // @Failure 422 {object} xres.UnprocessableEntityResponse "type: operation_failed"
-// @Router /v1/xxxxx [get]
+// @Router /v1/xxxxxs [get]
 func (h *handler) GetXxxxxPaging(c *echo.Context) error {
 	var req models.GetXxxxxPagingRequest
 	if err := c.Bind(&req); err != nil {

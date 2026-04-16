@@ -25,6 +25,7 @@ temp/
 
 # Project build
 main
+/api
 *templ.go
 secret*.yaml
 !secret.*example*

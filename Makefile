@@ -1,3 +1,8 @@
+init:
+	@echo "Initializing..."
+	@pre-commit install
+	@go mod tidy
+
 dev:
 	@echo "Running..."
 	@make swag

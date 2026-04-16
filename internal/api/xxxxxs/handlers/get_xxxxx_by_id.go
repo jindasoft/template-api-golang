@@ -10,13 +10,13 @@ import (
 // GetXxxxxByID godoc
 // @Summary Get Xxxxx by ID
 // @Description Get a specific xxxxx record by ID
-// @Tags xxxxx
+// @Tags xxxxxs
 // @Accept json
 // @Produce json
 // @Param id path string true "Xxxxx ID"
 // @Success 200 {object} models.SwaggerGetXxxxxByIDResponse
 // @Failure 422 {object} xres.UnprocessableEntityResponse "type: operation_failed"
-// @Router /v1/xxxxx/{id} [get]
+// @Router /v1/xxxxxs/{id} [get]
 func (h *handler) GetXxxxxByID(c *echo.Context) error {
 	id := c.Param("id")
 

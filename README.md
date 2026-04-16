@@ -1,11 +1,13 @@
 # template-api-golang
 
-replace
-
 rename file
 
-rename content exm_examples ==> dbname, redis instant name
-template-api-examples ==> api-services
+rename exm_example ==> xxx_service
+change kv_name
+change port
+
+replace
+template-api-golang ==> xxx-api-service
 xxxxxs ==> modules
 Xxxxx ==> Module
 xxxxx ==> module
