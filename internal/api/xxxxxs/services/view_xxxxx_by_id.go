@@ -4,8 +4,6 @@ import (
 	"context"
 	"fmt"
 	"template-api-golang/internal/api/xxxxxs/models"
-
-	"github.com/jindasoft/jinda-platforms/xdate"
 )
 
 func (s *service) ViewXxxxxByID(ctx context.Context, id string) (*models.GetXxxxxByIDResponse, error) {
@@ -17,12 +15,9 @@ func (s *service) ViewXxxxxByID(ctx context.Context, id string) (*models.GetXxxx
 
 	// Return the response
 	res := &models.GetXxxxxByIDResponse{
-		ID:        "id", // entity.ID --- IGNORE ---
-		Code:      entity.Code,
-		Name:      "entity.Name",
-		Status:    "entity.Status",
-		CreatedAt: entity.CreatedAt.Format(xdate.FormatISO8601),
-		UpdatedAt: entity.UpdatedAt.Format(xdate.FormatISO8601),
+		ID:   "id", // entity.ID --- IGNORE ---
+		Code: entity.Code,
+		Name: entity.Name,
 	}
 
 	return res, nil
