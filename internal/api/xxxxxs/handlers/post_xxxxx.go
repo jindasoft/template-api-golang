@@ -10,14 +10,14 @@ import (
 // PostXxxxx godoc
 // @Summary Create a new Xxxxx
 // @Description Create a new xxxxx record
-// @Tags xxxxx
+// @Tags xxxxxs
 // @Accept json
 // @Produce json
 // @Param request body models.PostXxxxxRequest true "Create xxxxx request"
 // @Success 201 {object} models.SwaggerPostXxxxxResponse
 // @Failure 400 {object} xres.BadRequestResponse "type: bind_data_error, validation_error"
 // @Failure 422 {object} xres.UnprocessableEntityResponse
-// @Router /v1/xxxxx [post]
+// @Router /v1/xxxxxs [post]
 func (h *handler) PostXxxxx(c *echo.Context) error {
 	var req models.PostXxxxxRequest
 	if err := c.Bind(&req); err != nil {

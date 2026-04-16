@@ -1,7 +1,9 @@
 package server
 
 import (
+	"fmt"
 	"template-api-golang/configs"
+	"template-api-golang/docs"
 
 	xxxxxs "template-api-golang/internal/api/xxxxxs/routes"
 	"template-api-golang/internal/healthz"
@@ -13,6 +15,17 @@ import (
 	echoSwagger "github.com/swaggo/echo-swagger"
 )
 
+// @title template-api-golang
+// @version 1.0.0
+// @description template-api-golang
+// @termsOfService http://swagger.io/terms/
+
+// @contact.name API Support
+// @contact.url http://www.swagger.io/support
+// @contact.email support@swagger.io
+
+// @license.name Apache 2.0
+// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 func (s *server) RegisterRoutes() *echo.Echo {
 	conf := configs.GetConfig()
 
@@ -42,6 +55,9 @@ func (s *server) RegisterRoutes() *echo.Echo {
 
 	// swagger
 	if conf.App.Env != "prod" {
+		// Set Swagger host from config
+		docs.SwaggerInfo.Host = fmt.Sprintf("localhost:%d", conf.App.Port)
+
 		e.GET("/swagger/*", echoSwagger.WrapHandler)
 	}
 

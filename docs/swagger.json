@@ -1,21 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Template API Examples",
-        "title": "Template API",
-        "termsOfService": "http://swagger.io/terms/",
-        "contact": {
-            "name": "API Support",
-            "url": "http://www.swagger.io/support",
-            "email": "support@swagger.io"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
-        "version": "1.0.0"
+        "contact": {}
     },
-    "host": "localhost:9000",
     "paths": {
         "/liveness": {
             "get": {
@@ -57,7 +44,7 @@
                 }
             }
         },
-        "/v1/xxxxx": {
+        "/v1/xxxxxs": {
             "get": {
                 "description": "Get xxxxx records with pagination support",
                 "consumes": [
@@ -67,7 +54,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "xxxxx"
+                    "xxxxxs"
                 ],
                 "summary": "Get Xxxxx with pagination",
                 "parameters": [
@@ -116,7 +103,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "xxxxx"
+                    "xxxxxs"
                 ],
                 "summary": "Create a new Xxxxx",
                 "parameters": [
@@ -152,7 +139,7 @@
                 }
             }
         },
-        "/v1/xxxxx/{id}": {
+        "/v1/xxxxxs/{id}": {
             "get": {
                 "description": "Get a specific xxxxx record by ID",
                 "consumes": [
@@ -162,7 +149,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "xxxxx"
+                    "xxxxxs"
                 ],
                 "summary": "Get Xxxxx by ID",
                 "parameters": [
