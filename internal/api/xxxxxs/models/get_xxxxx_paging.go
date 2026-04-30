@@ -1,6 +1,6 @@
 package models
 
-import "github.com/jindasoft/jinda-platforms/xres"
+import "github.com/jindasoft/jinda-platform/xres"
 
 type GetXxxxxPagingRequest struct {
 	Limit  int64 `query:"limit"`

@@ -92,8 +92,8 @@ github.com/hashicorp/vault/api v1.16.0 h1:nbEYGJiAPGzT9U4oWgaaB0g+Rj8E59QuHKyA5L
 github.com/hashicorp/vault/api v1.16.0/go.mod h1:KhuUhzOD8lDSk29AtzNjgAu2kxRA9jL9NAbkFlqvkBA=
 github.com/hashicorp/vault/api/auth/approle v0.9.0 h1:FdpspwGVWnGiWmAxd5L1Yd+T+fX2kYnyAIvI5oGdvNs=
 github.com/hashicorp/vault/api/auth/approle v0.9.0/go.mod h1:fvtJhBs3AYMs2fXk4U5+u+7unhUGuboiKzFpLPpIazw=
-github.com/jindasoft/jinda-platforms v0.0.0-20260411090610-4201e6ea79b2 h1:2YkM02XheFu1G3C3cyUuYGE0Dj6jdieMAnbIPl1h2Q0=
-github.com/jindasoft/jinda-platforms v0.0.0-20260411090610-4201e6ea79b2/go.mod h1:0nLIkvNCu3IjpHVRWmBqiBzr4+FdSXOib3JJJSwguIM=
+github.com/jindasoft/jinda-platform v0.0.0-20260430045922-2ab15e4424e4 h1:7nR3IVA4SfIIKmQz6l3HIwg6IVeXXXOjnG1iy5TBjjA=
+github.com/jindasoft/jinda-platform v0.0.0-20260430045922-2ab15e4424e4/go.mod h1:YQSVEDihcDKbocP55wvH1VE2FEJHyFQJE27LsL2pAe8=
 github.com/jinzhu/copier v0.4.0 h1:w3ciUoD19shMCRargcpm0cm91ytaBhDvuRpz1ODO/U8=
 github.com/jinzhu/copier v0.4.0/go.mod h1:DfbEm0FYsaqBcKcFuvmOZb218JkPGtvSHsKg8S8hyyg=
 github.com/kr/pretty v0.2.1/go.mod h1:ipq/a2n7PKx3OHsz4KJII5eveXtPO4qwEXGdVfWzfnI=

@@ -1,6 +1,6 @@
 package models
 
-import "github.com/jindasoft/jinda-platforms/xres"
+import "github.com/jindasoft/jinda-platform/xres"
 
 type SwaggerGetXxxxxByIDResponse struct {
 	xres.SuccessResponse

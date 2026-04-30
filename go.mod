@@ -4,7 +4,7 @@ go 1.26.2
 
 require (
 	github.com/go-playground/validator/v10 v10.25.0
-	github.com/jindasoft/jinda-platforms v0.0.0-20260411090610-4201e6ea79b2
+	github.com/jindasoft/jinda-platform v0.0.0-20260430045922-2ab15e4424e4
 	github.com/labstack/echo/v5 v5.0.4
 	github.com/spf13/viper v1.20.0
 	github.com/swaggo/echo-swagger v1.5.0
