@@ -92,7 +92,7 @@ func NewServer() *http.Server {
 		WriteTimeout: conf.Server.WriteTimeout,
 	}
 
-	xlogger.SysInfof("Server is running on port: %d", conf.App.Port)
+	xlogger.SysInfof("Port: %d", conf.App.Port)
 
 	return server
 }

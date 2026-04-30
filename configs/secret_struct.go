@@ -10,31 +10,34 @@ type Secrets struct {
 // type Redis struct {
 // 	Host         string `mapstructure:"redis_host"`
 // 	Port         int    `mapstructure:"redis_port"`
-// 	Password     string `mapstructure:"redis_password"`
 // 	InstanceName string `mapstructure:"redis_instance_name"`
+// 	Password     string `mapstructure:"redis_password"`
 // }
 
 // type Mongo struct {
-// 	Connection string `mapstructure:"mongo_connection"`
-// 	Options    string `mapstructure:"mongo_options"`
-// 	DbName     string `mapstructure:"mongo_db_name"`
+// 	Host       string `mapstructure:"mongo_host"`
+// 	Port       int    `mapstructure:"mongo_port"`
+// 	Database   string `mapstructure:"mongo_database"`
+// 	Username   string `mapstructure:"mongo_user"`
+// 	Password   string `mapstructure:"mongo_password"`
 // 	IsDebug    bool   `mapstructure:"mongo_is_debug"`
+// 	Options    string `mapstructure:"mongo_options"`
 // }
 
 // type Postgres struct {
 // 	Host     string `mapstructure:"postgres_host"`
 // 	Port     int    `mapstructure:"postgres_port"`
 // 	Database string `mapstructure:"postgres_database"`
-// 	User     string `mapstructure:"postgres_user"`
+// 	Username string `mapstructure:"postgres_user"`
 // 	Password string `mapstructure:"postgres_password"`
-// 	SSLMode  string `mapstructure:"postgres_ssl_mode"`
 // 	IsDebug  bool   `mapstructure:"postgres_is_debug"`
+// 	SSLMode  string `mapstructure:"postgres_ssl_mode"`
 // }
 
 // type RabbitMQ struct {
 // 	Host     string `mapstructure:"rabbitmq_host"`
 // 	Port     int    `mapstructure:"rabbitmq_port"`
-// 	User     string `mapstructure:"rabbitmq_user"`
+// 	Username string `mapstructure:"rabbitmq_user"`
 // 	Password string `mapstructure:"rabbitmq_password"`
 // 	VHost    string `mapstructure:"rabbitmq_vhost"`
 // }
