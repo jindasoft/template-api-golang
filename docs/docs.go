@@ -88,7 +88,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse"
+                            "$ref": "#/definitions/xres.PagingResponse-array_template-api-golang_internal_api_xxxxxs_models_GetXxxxxPagingResponse"
                         }
                     },
                     "400": {
@@ -132,7 +132,7 @@ const docTemplate = `{
                     "201": {
                         "description": "Created",
                         "schema": {
-                            "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse"
+                            "$ref": "#/definitions/xres.CreatedResponse-template-api-golang_internal_api_xxxxxs_models_PostXxxxxResponse"
                         }
                     },
                     "400": {
@@ -176,7 +176,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse"
+                            "$ref": "#/definitions/xres.SuccessResponse-template-api-golang_internal_api_xxxxxs_models_GetXxxxxByIDResponse"
                         }
                     },
                     "422": {
@@ -279,15 +279,32 @@ const docTemplate = `{
                 }
             }
         },
-        "template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse": {
+        "xres.BadRequestResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string",
+                    "example": "Bad request."
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false
+                },
+                "type": {
+                    "type": "string",
+                    "example": "bad_request"
+                }
+            }
+        },
+        "xres.CreatedResponse-template-api-golang_internal_api_xxxxxs_models_PostXxxxxResponse": {
             "type": "object",
             "properties": {
                 "data": {
-                    "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.GetXxxxxByIDResponse"
+                    "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.PostXxxxxResponse"
                 },
                 "message": {
                     "type": "string",
-                    "example": "Successful."
+                    "example": "Created."
                 },
                 "success": {
                     "type": "boolean",
@@ -295,11 +312,28 @@ const docTemplate = `{
                 },
                 "type": {
                     "type": "string",
-                    "example": "success"
+                    "example": "created"
                 }
             }
         },
-        "template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse": {
+        "xres.PagingMeta": {
+            "type": "object",
+            "properties": {
+                "limit": {
+                    "type": "integer",
+                    "example": 10
+                },
+                "offset": {
+                    "type": "integer",
+                    "example": 0
+                },
+                "total": {
+                    "type": "integer",
+                    "example": 100
+                }
+            }
+        },
+        "xres.PagingResponse-array_template-api-golang_internal_api_xxxxxs_models_GetXxxxxPagingResponse": {
             "type": "object",
             "properties": {
                 "data": {
@@ -325,15 +359,15 @@ const docTemplate = `{
                 }
             }
         },
-        "template-api-golang_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse": {
+        "xres.SuccessResponse-template-api-golang_internal_api_xxxxxs_models_GetXxxxxByIDResponse": {
             "type": "object",
             "properties": {
                 "data": {
-                    "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.PostXxxxxResponse"
+                    "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.GetXxxxxByIDResponse"
                 },
                 "message": {
                     "type": "string",
-                    "example": "Created."
+                    "example": "Successful."
                 },
                 "success": {
                     "type": "boolean",
@@ -341,41 +375,7 @@ const docTemplate = `{
                 },
                 "type": {
                     "type": "string",
-                    "example": "created"
-                }
-            }
-        },
-        "xres.BadRequestResponse": {
-            "type": "object",
-            "properties": {
-                "message": {
-                    "type": "string",
-                    "example": "Bad request."
-                },
-                "success": {
-                    "type": "boolean",
-                    "example": false
-                },
-                "type": {
-                    "type": "string",
-                    "example": "bad_request"
-                }
-            }
-        },
-        "xres.PagingMeta": {
-            "type": "object",
-            "properties": {
-                "limit": {
-                    "type": "integer",
-                    "example": 10
-                },
-                "offset": {
-                    "type": "integer",
-                    "example": 0
-                },
-                "total_items": {
-                    "type": "integer",
-                    "example": 100
+                    "example": "success"
                 }
             }
         },

@@ -3,7 +3,7 @@ package handlers
 import (
 	_ "template-api-golang/internal/api/xxxxxs/models"
 
-	"github.com/jindasoft/jinda-platforms/xres"
+	"github.com/jindasoft/jinda-platform/xres"
 	"github.com/labstack/echo/v5"
 )
 
@@ -14,7 +14,7 @@ import (
 // @Accept json
 // @Produce json
 // @Param id path string true "Xxxxx ID"
-// @Success 200 {object} models.SwaggerGetXxxxxByIDResponse
+// @Success 200 {object} xres.SuccessResponse[models.GetXxxxxByIDResponse]
 // @Failure 422 {object} xres.UnprocessableEntityResponse "type: operation_failed"
 // @Router /v1/xxxxxs/{id} [get]
 func (h *handler) GetXxxxxByID(c *echo.Context) error {

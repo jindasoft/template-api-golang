@@ -59,21 +59,45 @@ definitions:
       id:
         type: string
     type: object
-  template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse:
+  xres.BadRequestResponse:
+    properties:
+      message:
+        example: Bad request.
+        type: string
+      success:
+        example: false
+        type: boolean
+      type:
+        example: bad_request
+        type: string
+    type: object
+  xres.CreatedResponse-template-api-golang_internal_api_xxxxxs_models_PostXxxxxResponse:
     properties:
       data:
-        $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.GetXxxxxByIDResponse'
+        $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.PostXxxxxResponse'
       message:
-        example: Successful.
+        example: Created.
         type: string
       success:
         example: true
         type: boolean
       type:
-        example: success
+        example: created
         type: string
     type: object
-  template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse:
+  xres.PagingMeta:
+    properties:
+      limit:
+        example: 10
+        type: integer
+      offset:
+        example: 0
+        type: integer
+      total:
+        example: 100
+        type: integer
+    type: object
+  xres.PagingResponse-array_template-api-golang_internal_api_xxxxxs_models_GetXxxxxPagingResponse:
     properties:
       data:
         items:
@@ -91,43 +115,19 @@ definitions:
         example: success
         type: string
     type: object
-  template-api-golang_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse:
+  xres.SuccessResponse-template-api-golang_internal_api_xxxxxs_models_GetXxxxxByIDResponse:
     properties:
       data:
-        $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.PostXxxxxResponse'
+        $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.GetXxxxxByIDResponse'
       message:
-        example: Created.
+        example: Successful.
         type: string
       success:
         example: true
         type: boolean
       type:
-        example: created
+        example: success
         type: string
-    type: object
-  xres.BadRequestResponse:
-    properties:
-      message:
-        example: Bad request.
-        type: string
-      success:
-        example: false
-        type: boolean
-      type:
-        example: bad_request
-        type: string
-    type: object
-  xres.PagingMeta:
-    properties:
-      limit:
-        example: 10
-        type: integer
-      offset:
-        example: 0
-        type: integer
-      total_items:
-        example: 100
-        type: integer
     type: object
   xres.UnprocessableEntityResponse:
     properties:
@@ -193,7 +193,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse'
+            $ref: '#/definitions/xres.PagingResponse-array_template-api-golang_internal_api_xxxxxs_models_GetXxxxxPagingResponse'
         "400":
           description: 'type: bind_data_error, validation_error'
           schema:
@@ -222,7 +222,7 @@ paths:
         "201":
           description: Created
           schema:
-            $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse'
+            $ref: '#/definitions/xres.CreatedResponse-template-api-golang_internal_api_xxxxxs_models_PostXxxxxResponse'
         "400":
           description: 'type: bind_data_error, validation_error'
           schema:
@@ -251,7 +251,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse'
+            $ref: '#/definitions/xres.SuccessResponse-template-api-golang_internal_api_xxxxxs_models_GetXxxxxByIDResponse'
         "422":
           description: 'type: operation_failed'
           schema:

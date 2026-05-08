@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"template-api-golang/configs"
 
-	"github.com/jindasoft/jinda-platforms/xlogger"
+	"github.com/jindasoft/jinda-platform/xlogger"
 )
 
 type server struct {

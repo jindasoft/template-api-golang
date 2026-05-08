@@ -1,10 +1,10 @@
 module template-api-golang
 
-go 1.26.2
+go 1.26.3
 
 require (
 	github.com/go-playground/validator/v10 v10.25.0
-	github.com/jindasoft/jinda-platforms v0.0.0-20260411090610-4201e6ea79b2
+	github.com/jindasoft/jinda-platform v0.0.0-20260507130956-9952adfbd1a2
 	github.com/labstack/echo/v5 v5.0.4
 	github.com/spf13/viper v1.20.0
 	github.com/swaggo/echo-swagger v1.5.0
@@ -67,14 +67,14 @@ require (
 	go.uber.org/multierr v1.11.0 // indirect
 	go.yaml.in/yaml/v2 v2.4.3 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
-	golang.org/x/crypto v0.48.0 // indirect
-	golang.org/x/mod v0.33.0 // indirect
-	golang.org/x/net v0.51.0 // indirect
-	golang.org/x/sync v0.19.0 // indirect
-	golang.org/x/sys v0.41.0 // indirect
-	golang.org/x/text v0.34.0 // indirect
+	golang.org/x/crypto v0.50.0 // indirect
+	golang.org/x/mod v0.34.0 // indirect
+	golang.org/x/net v0.53.0 // indirect
+	golang.org/x/sync v0.20.0 // indirect
+	golang.org/x/sys v0.43.0 // indirect
+	golang.org/x/text v0.36.0 // indirect
 	golang.org/x/time v0.14.0 // indirect
-	golang.org/x/tools v0.42.0 // indirect
+	golang.org/x/tools v0.43.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	sigs.k8s.io/yaml v1.6.0 // indirect

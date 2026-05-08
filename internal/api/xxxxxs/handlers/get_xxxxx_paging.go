@@ -3,7 +3,7 @@ package handlers
 import (
 	"template-api-golang/internal/api/xxxxxs/models"
 
-	"github.com/jindasoft/jinda-platforms/xres"
+	"github.com/jindasoft/jinda-platform/xres"
 	"github.com/labstack/echo/v5"
 )
 
@@ -15,7 +15,7 @@ import (
 // @Produce json
 // @Param page query int false "Page number" default(1)
 // @Param limit query int false "Items per page" default(10)
-// @Success 200 {object} models.SwaggerGetXxxxxPagingResponse
+// @Success 200 {object} xres.PagingResponse[[]models.GetXxxxxPagingResponse]
 // @Failure 400 {object} xres.BadRequestResponse "type: bind_data_error, validation_error"
 // @Failure 422 {object} xres.UnprocessableEntityResponse "type: operation_failed"
 // @Router /v1/xxxxxs [get]
@@ -36,9 +36,9 @@ func (h *handler) GetXxxxxPaging(c *echo.Context) error {
 	}
 
 	meta := xres.PagingMeta{
-		TotalItems: 10,
-		Offset:     req.Offset,
-		Limit:      req.Limit,
+		Total:  10,
+		Offset: req.Offset,
+		Limit:  req.Limit,
 	}
 
 	return xres.Paging(c, res, meta)
