@@ -1,17 +1,8 @@
 package models
 
-import "github.com/jindasoft/jinda-platform/xres"
-
 type GetXxxxxPagingRequest struct {
 	Limit  int64 `query:"limit"`
 	Offset int64 `query:"offset"`
-}
-
-// For Swagger documentation (expanded structure)
-type SwaggerGetXxxxxPagingResponse struct {
-	xres.PagingResponse
-
-	Data []GetXxxxxPagingResponse `json:"data"`
 }
 
 type GetXxxxxPagingResponse struct {

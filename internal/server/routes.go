@@ -40,7 +40,7 @@ func (s *server) RegisterRoutes() *echo.Echo {
 		xmdw.SpanIDMiddleware(),
 		xmdw.JwtExtractMiddleware(),
 		xmdw.ContextMiddleware(conf.App.Name, conf.App.Env),
-		xmdw.RequestCultureMiddleware(),
+		xmdw.RequestLocaleMiddleware(),
 		xmdw.SecureMiddleware(),
 	)
 

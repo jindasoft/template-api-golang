@@ -14,7 +14,7 @@ import (
 // @Accept json
 // @Produce json
 // @Param request body models.PostXxxxxRequest true "Create xxxxx request"
-// @Success 201 {object} models.SwaggerPostXxxxxResponse
+// @Success 201 {object} xres.CreatedResponse[models.PostXxxxxResponse]
 // @Failure 400 {object} xres.BadRequestResponse "type: bind_data_error, validation_error"
 // @Failure 422 {object} xres.UnprocessableEntityResponse
 // @Router /v1/xxxxxs [post]
