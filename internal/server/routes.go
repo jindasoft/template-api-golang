@@ -66,7 +66,7 @@ func (s *server) RegisterRoutes() *echo.Echo {
 
 	// API routes
 	api := e.Group("/v1")
-	xxxxxs.NewRoutes(api)
+	xxxxxs.NewRoutes(api, s.mongo)
 
 	return e
 }

@@ -16,7 +16,7 @@ func GetConfig() *Configs {
 	viper.AddConfigPath(strings.Join([]string{"./configs"}, "/"))
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
-	viper.SetEnvPrefix("TGRENV")
+	viper.SetEnvPrefix("CONFIG")
 	viper.AutomaticEnv()
 	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "__"))
 	err := viper.ReadInConfig()

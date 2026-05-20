@@ -1,30 +1,35 @@
 package server
 
 import (
+	"context"
 	"fmt"
+	"log"
 	"net/http"
 	"template-api-golang/configs"
 
+	"github.com/jindasoft/jinda-platform/xdb"
 	"github.com/jindasoft/jinda-platform/xlogger"
+	"github.com/jinzhu/copier"
 )
 
 type server struct {
 	port int
 	// redis    xcache.RedisService
-	// mongo    xdb.MongoService
+	mongo xdb.MongoService
 	// postgres xdb.PostgresService
 	// rabbit   xmq.RabbitMQService
 }
 
 func NewServer() *http.Server {
 	conf := configs.GetConfig()
+	sect := configs.GetSecret()
 
 	xlogger.Init(
 		conf.Server.LogLevel,
 		conf.App.Name,
 		conf.Server.PrettyPrint,
 	)
-	// ctx := context.Background()
+	ctx := context.Background()
 
 	// Redis
 	// var redisConfig xcache.RedisConfig
@@ -37,14 +42,14 @@ func NewServer() *http.Server {
 	// }
 
 	// MongoDB
-	// var mongoConfig xdb.MongoConfig
-	// if err := copier.Copy(&mongoConfig, sect.Mongo); err != nil {
-	// 	log.Fatalf("Failed to copy mongo config: %s", err)
-	// }
-	// mongoService, err := xdb.NewMongoService(ctx, &mongoConfig)
-	// if err != nil {
-	// 	log.Fatalf("Failed to connect to MongoDB: %s", err)
-	// }
+	var mongoConfig xdb.MongoConfig
+	if err := copier.Copy(&mongoConfig, sect.MongoDB); err != nil {
+		log.Fatalf("Failed to copy mongo config: %s", err)
+	}
+	mongoService, err := xdb.NewMongoService(ctx, &mongoConfig)
+	if err != nil {
+		log.Fatalf("Failed to connect to MongoDB: %s", err)
+	}
 
 	// PostgreSQL
 	// var postgresConfig xdb.PostgresConfig
@@ -78,7 +83,7 @@ func NewServer() *http.Server {
 	newServer := &server{
 		port: conf.App.Port,
 		// redis:    redisService,
-		// mongo: mongoService,
+		mongo: mongoService,
 		// postgres: postgresService,
 		// rabbit:   rabbitMQService,
 	}
