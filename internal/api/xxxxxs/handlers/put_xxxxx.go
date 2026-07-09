@@ -5,21 +5,29 @@ import (
 
 	"github.com/jindasoft/jinda-platform/xres"
 	"github.com/labstack/echo/v5"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-// PostXxxxx godoc
-// @Summary Create a new xxxxx
-// @Description Create a new xxxxx
+// PutXxxxx godoc
+// @Summary Update an existing xxxxx
+// @Description Update an existing xxxxx
 // @Tags xxxxxs
 // @Accept json
 // @Produce json
-// @Param request body models.PostXxxxxRequest true "request body"
-// @Success 201 {object} xres.SuccessResponse[models.PostXxxxxResponse]
+// @Param id path string true "Xxxxx ID"
+// @Param request body models.PutXxxxxRequest true "request body"
+// @Success 200 {object} xres.SuccessResponse[models.PutXxxxxResponse]
 // @Failure 400 {object} xres.BadRequestResponse "type: bad_request"
 // @Failure 422 {object} xres.UnprocessableEntityResponse "type: operation_failed"
-// @Router /xxxxxs [post]
-func (h *handler) PostXxxxx(c *echo.Context) error {
-	var req models.PostXxxxxRequest
+// @Router /xxxxxs/{id} [put]
+func (h *handler) PutXxxxx(c *echo.Context) error {
+	id := c.Param("id")
+	oid, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		return xres.BadRequestBindData(c, err.Error())
+	}
+
+	var req models.PutXxxxxRequest
 	if err := c.Bind(&req); err != nil {
 		return xres.BadRequestBindData(c, err.Error())
 	}
@@ -29,10 +37,10 @@ func (h *handler) PostXxxxx(c *echo.Context) error {
 	}
 
 	ctx := c.Request().Context()
-	res, err := h.service.AddXxxxx(ctx, &req)
+	res, err := h.service.EditXxxxx(ctx, oid, &req)
 	if err != nil {
 		return xres.UnprocessableEntity(c, err.Error())
 	}
 
-	return xres.Created(c, res)
+	return xres.Updated(c, res)
 }

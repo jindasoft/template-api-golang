@@ -8,17 +8,17 @@ import (
 )
 
 // GetXxxxxPaging godoc
-// @Summary Get Xxxxx with pagination
-// @Description Get xxxxx records with pagination support
+// @Summary Get xxxxx paging
+// @Description Get xxxxx paging
 // @Tags xxxxxs
 // @Accept json
 // @Produce json
-// @Param page query int false "Page number" default(1)
-// @Param limit query int false "Items per page" default(10)
+// @Param offset query int false "Offset"
+// @Param limit query int false "Limit"
 // @Success 200 {object} xres.PagingResponse[[]models.GetXxxxxPagingResponse]
-// @Failure 400 {object} xres.BadRequestResponse "type: bind_data_error, validation_error"
+// @Failure 400 {object} xres.BadRequestResponse "type: bad_request"
 // @Failure 422 {object} xres.UnprocessableEntityResponse "type: operation_failed"
-// @Router /v1/xxxxxs [get]
+// @Router /xxxxxs [get]
 func (h *handler) GetXxxxxPaging(c *echo.Context) error {
 	var req models.GetXxxxxPagingRequest
 	if err := c.Bind(&req); err != nil {
@@ -30,15 +30,9 @@ func (h *handler) GetXxxxxPaging(c *echo.Context) error {
 	}
 
 	ctx := c.Request().Context()
-	res, err := h.service.ViewXxxxxPaging(ctx, &req)
+	res, meta, err := h.service.ViewXxxxxPaging(ctx, &req)
 	if err != nil {
 		return xres.UnprocessableEntity(c, err.Error())
-	}
-
-	meta := xres.PagingMeta{
-		Total:  10,
-		Offset: req.Offset,
-		Limit:  req.Limit,
 	}
 
 	return xres.Paging(c, res, meta)

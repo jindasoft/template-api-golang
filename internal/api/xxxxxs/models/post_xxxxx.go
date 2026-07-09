@@ -1,11 +1,12 @@
 package models
 
 type PostXxxxxRequest struct {
-	Code   string `json:"code" validate:"required"`
-	NameEN string `json:"name_en" validate:"required"`
-	NameTH string `json:"name_th" validate:"required"`
+	Code        string `json:"code" validate:"required"`
+	Name        string `json:"name" validate:"required"`
+	Description string `json:"description"`
+	Locale      string `json:"locale" validate:"required,locale"`
 }
 
 type PostXxxxxResponse struct {
-	ID string `json:"id"`
+	XxxxxID string `json:"xxxxx_id"`
 }
