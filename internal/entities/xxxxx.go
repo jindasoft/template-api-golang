@@ -1,10 +1,13 @@
 package entities
 
-import "github.com/jindasoft/jinda-platforms/xentities"
+import "github.com/jindasoft/jinda-platform/xentities"
 
 type Xxxxx struct {
-	Code string                `json:"code" bson:"code"`
-	Name xentities.MongoLocale `json:"name" bson:"name"`
+	xentities.MongoBaseModel `json:",inline" bson:",inline"`
 
-	xentities.MongoBase `json:",inline" bson:",inline"`
+	Code        string                `json:"code" bson:"code"`
+	Name        xentities.MongoLocale `json:"name" bson:"name"`
+	Description xentities.MongoLocale `json:"description" bson:"description"`
+	Ord         int16                 `json:"ord" bson:"ord"`
+	Icon        string                `json:"icon" bson:"icon"`
 }

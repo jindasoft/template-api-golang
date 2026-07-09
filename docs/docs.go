@@ -9,16 +9,7 @@ const docTemplate = `{
     "info": {
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
-        "termsOfService": "http://swagger.io/terms/",
-        "contact": {
-            "name": "API Support",
-            "url": "http://www.swagger.io/support",
-            "email": "support@swagger.io"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
+        "contact": {},
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
@@ -64,9 +55,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/v1/xxxxx": {
+        "/xxxxxs": {
             "get": {
-                "description": "Get xxxxx records with pagination support",
+                "description": "Get xxxxx paging",
                 "consumes": [
                     "application/json"
                 ],
@@ -74,21 +65,19 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "xxxxx"
+                    "xxxxxs"
                 ],
-                "summary": "Get Xxxxx with pagination",
+                "summary": "Get xxxxx paging",
                 "parameters": [
                     {
                         "type": "integer",
-                        "default": 1,
-                        "description": "Page number",
-                        "name": "page",
+                        "description": "Offset",
+                        "name": "offset",
                         "in": "query"
                     },
                     {
                         "type": "integer",
-                        "default": 10,
-                        "description": "Items per page",
+                        "description": "Limit",
                         "name": "limit",
                         "in": "query"
                     }
@@ -97,11 +86,11 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse"
+                            "$ref": "#/definitions/xres.PagingResponse-array_template-api-golang_internal_api_xxxxxs_models_GetXxxxxPagingResponse"
                         }
                     },
                     "400": {
-                        "description": "type: bind_data_error, validation_error",
+                        "description": "type: bad_request",
                         "schema": {
                             "$ref": "#/definitions/xres.BadRequestResponse"
                         }
@@ -115,7 +104,7 @@ const docTemplate = `{
                 }
             },
             "post": {
-                "description": "Create a new xxxxx record",
+                "description": "Create a new xxxxx",
                 "consumes": [
                     "application/json"
                 ],
@@ -123,17 +112,17 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "xxxxx"
+                    "xxxxxs"
                 ],
-                "summary": "Create a new Xxxxx",
+                "summary": "Create a new xxxxx",
                 "parameters": [
                     {
-                        "description": "Create xxxxx request",
+                        "description": "request body",
                         "name": "request",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/template-api-examples_internal_api_xxxxxs_models.PostXxxxxRequest"
+                            "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.PostXxxxxRequest"
                         }
                     }
                 ],
@@ -141,17 +130,17 @@ const docTemplate = `{
                     "201": {
                         "description": "Created",
                         "schema": {
-                            "$ref": "#/definitions/template-api-examples_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse"
+                            "$ref": "#/definitions/xres.SuccessResponse-template-api-golang_internal_api_xxxxxs_models_PostXxxxxResponse"
                         }
                     },
                     "400": {
-                        "description": "type: bind_data_error, validation_error",
+                        "description": "type: bad_request",
                         "schema": {
                             "$ref": "#/definitions/xres.BadRequestResponse"
                         }
                     },
                     "422": {
-                        "description": "Unprocessable Entity",
+                        "description": "type: operation_failed",
                         "schema": {
                             "$ref": "#/definitions/xres.UnprocessableEntityResponse"
                         }
@@ -159,9 +148,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/v1/xxxxx/{id}": {
+        "/xxxxxs/{id}": {
             "get": {
-                "description": "Get a specific xxxxx record by ID",
+                "description": "Retrieve a xxxxx's details by its ID",
                 "consumes": [
                     "application/json"
                 ],
@@ -169,9 +158,9 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "xxxxx"
+                    "xxxxxs"
                 ],
-                "summary": "Get Xxxxx by ID",
+                "summary": "Get a xxxxx by ID",
                 "parameters": [
                     {
                         "type": "string",
@@ -185,7 +174,156 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse"
+                            "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.GetXxxxxByIDResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "type: bad_request",
+                        "schema": {
+                            "$ref": "#/definitions/xres.BadRequestResponse"
+                        }
+                    },
+                    "422": {
+                        "description": "type: operation_failed",
+                        "schema": {
+                            "$ref": "#/definitions/xres.UnprocessableEntityResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Update an existing xxxxx",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "xxxxxs"
+                ],
+                "summary": "Update an existing xxxxx",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Xxxxx ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "request body",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.PutXxxxxRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/xres.SuccessResponse-template-api-golang_internal_api_xxxxxs_models_PutXxxxxResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "type: bad_request",
+                        "schema": {
+                            "$ref": "#/definitions/xres.BadRequestResponse"
+                        }
+                    },
+                    "422": {
+                        "description": "type: operation_failed",
+                        "schema": {
+                            "$ref": "#/definitions/xres.UnprocessableEntityResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Soft delete a xxxxx by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "xxxxxs"
+                ],
+                "summary": "Delete a xxxxx",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Xxxxx ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "400": {
+                        "description": "type: bad_request",
+                        "schema": {
+                            "$ref": "#/definitions/xres.BadRequestResponse"
+                        }
+                    },
+                    "422": {
+                        "description": "type: operation_failed",
+                        "schema": {
+                            "$ref": "#/definitions/xres.UnprocessableEntityResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/xxxxxs/{id}/status": {
+            "put": {
+                "description": "Update a xxxxx's details by its ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "xxxxxs"
+                ],
+                "summary": "Update a xxxxx",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Xxxxx ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Update Xxxxx Status Request",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.PutXxxxxStatusRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.PutXxxxxResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "type: bad_request",
+                        "schema": {
+                            "$ref": "#/definitions/xres.BadRequestResponse"
                         }
                     },
                     "422": {
@@ -233,7 +371,7 @@ const docTemplate = `{
                 }
             }
         },
-        "template-api-examples_internal_api_xxxxxs_models.GetXxxxxByIDResponse": {
+        "template-api-golang_internal_api_xxxxxs_models.GetXxxxxByIDResponse": {
             "type": "object",
             "properties": {
                 "code": {
@@ -242,11 +380,20 @@ const docTemplate = `{
                 "created_at": {
                     "type": "string"
                 },
+                "description": {
+                    "type": "string"
+                },
+                "icon": {
+                    "type": "string"
+                },
                 "id": {
                     "type": "string"
                 },
                 "name": {
                     "type": "string"
+                },
+                "ord": {
+                    "type": "integer"
                 },
                 "status": {
                     "type": "string"
@@ -256,13 +403,13 @@ const docTemplate = `{
                 }
             }
         },
-        "template-api-examples_internal_api_xxxxxs_models.GetXxxxxPagingResponse": {
+        "template-api-golang_internal_api_xxxxxs_models.GetXxxxxPagingResponse": {
             "type": "object",
             "properties": {
                 "code": {
                     "type": "string"
                 },
-                "created_at": {
+                "icon": {
                     "type": "string"
                 },
                 "id": {
@@ -270,105 +417,96 @@ const docTemplate = `{
                 },
                 "name": {
                     "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
                 }
             }
         },
-        "template-api-examples_internal_api_xxxxxs_models.PostXxxxxRequest": {
+        "template-api-golang_internal_api_xxxxxs_models.PostXxxxxRequest": {
             "type": "object",
             "required": [
                 "code",
-                "name_en",
-                "name_th"
+                "locale",
+                "name"
             ],
             "properties": {
                 "code": {
                     "type": "string"
                 },
-                "name_en": {
+                "description": {
                     "type": "string"
                 },
-                "name_th": {
+                "locale": {
+                    "type": "string"
+                },
+                "name": {
                     "type": "string"
                 }
             }
         },
-        "template-api-examples_internal_api_xxxxxs_models.PostXxxxxResponse": {
+        "template-api-golang_internal_api_xxxxxs_models.PostXxxxxResponse": {
             "type": "object",
             "properties": {
+                "xxxxx_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "template-api-golang_internal_api_xxxxxs_models.PutXxxxxRequest": {
+            "type": "object",
+            "required": [
+                "code",
+                "locale",
+                "name",
+                "ord"
+            ],
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "locale": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "ord": {
+                    "type": "integer"
+                }
+            }
+        },
+        "template-api-golang_internal_api_xxxxxs_models.PutXxxxxResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
                 "id": {
                     "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "ord": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
                 }
             }
         },
-        "template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse": {
+        "template-api-golang_internal_api_xxxxxs_models.PutXxxxxStatusRequest": {
             "type": "object",
+            "required": [
+                "status"
+            ],
             "properties": {
-                "data": {
-                    "$ref": "#/definitions/template-api-examples_internal_api_xxxxxs_models.GetXxxxxByIDResponse"
-                },
-                "message": {
-                    "type": "string",
-                    "example": "Successful."
-                },
-                "success": {
-                    "type": "boolean",
-                    "example": true
-                },
-                "type": {
-                    "type": "string",
-                    "example": "success"
-                }
-            }
-        },
-        "template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse": {
-            "type": "object",
-            "properties": {
-                "data": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/template-api-examples_internal_api_xxxxxs_models.GetXxxxxPagingResponse"
-                    }
-                },
-                "message": {
-                    "type": "string",
-                    "example": "Successful."
-                },
-                "meta": {
-                    "$ref": "#/definitions/xres.PagingMeta"
-                },
-                "success": {
-                    "type": "boolean",
-                    "example": true
-                },
-                "type": {
-                    "type": "string",
-                    "example": "success"
-                }
-            }
-        },
-        "template-api-examples_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse": {
-            "type": "object",
-            "properties": {
-                "data": {
-                    "$ref": "#/definitions/template-api-examples_internal_api_xxxxxs_models.PostXxxxxResponse"
-                },
-                "message": {
-                    "type": "string",
-                    "example": "Created."
-                },
-                "success": {
-                    "type": "boolean",
-                    "example": true
-                },
-                "type": {
-                    "type": "string",
-                    "example": "created"
+                "status": {
+                    "type": "string"
                 }
             }
         },
@@ -400,9 +538,75 @@ const docTemplate = `{
                     "type": "integer",
                     "example": 0
                 },
-                "total_items": {
+                "total": {
                     "type": "integer",
                     "example": 100
+                }
+            }
+        },
+        "xres.PagingResponse-array_template-api-golang_internal_api_xxxxxs_models_GetXxxxxPagingResponse": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.GetXxxxxPagingResponse"
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "example": "Successful."
+                },
+                "meta": {
+                    "$ref": "#/definitions/xres.PagingMeta"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "type": {
+                    "type": "string",
+                    "example": "success"
+                }
+            }
+        },
+        "xres.SuccessResponse-template-api-golang_internal_api_xxxxxs_models_PostXxxxxResponse": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.PostXxxxxResponse"
+                },
+                "message": {
+                    "type": "string",
+                    "example": "Successful."
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "type": {
+                    "type": "string",
+                    "example": "success"
+                }
+            }
+        },
+        "xres.SuccessResponse-template-api-golang_internal_api_xxxxxs_models_PutXxxxxResponse": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.PutXxxxxResponse"
+                },
+                "message": {
+                    "type": "string",
+                    "example": "Successful."
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "type": {
+                    "type": "string",
+                    "example": "success"
                 }
             }
         },
@@ -428,12 +632,12 @@ const docTemplate = `{
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
-	Version:          "1.0.0",
-	Host:             "localhost:9000",
+	Version:          "",
+	Host:             "",
 	BasePath:         "",
 	Schemes:          []string{},
-	Title:            "Template API",
-	Description:      "Template API Examples",
+	Title:            "",
+	Description:      "",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

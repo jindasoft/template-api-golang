@@ -1,18 +1,31 @@
 package server
 
 import (
-	"template-api-examples/configs"
+	"fmt"
+	"template-api-golang/configs"
+	"template-api-golang/docs"
 
-	xxxxxs "template-api-examples/internal/api/xxxxxs/routes"
-	"template-api-examples/internal/healthz"
-	"template-api-examples/internal/middlewares"
+	xxxxxs "template-api-golang/internal/api/xxxxxs/routes"
+	"template-api-golang/internal/healthz"
+	"template-api-golang/internal/middlewares"
 
-	"github.com/jindasoft/jinda-platforms/xmdw"
+	"github.com/jindasoft/jinda-platform/xmdw"
 	"github.com/labstack/echo/v5"
 	"github.com/labstack/echo/v5/middleware"
 	echoSwagger "github.com/swaggo/echo-swagger"
 )
 
+// @title template-api-golang
+// @version 1.0.0
+// @description template-api-golang
+// @termsOfService http://swagger.io/terms/
+
+// @contact.name API Support
+// @contact.url http://www.swagger.io/support
+// @contact.email support@swagger.io
+
+// @license.name Apache 2.0
+// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 func (s *server) RegisterRoutes() *echo.Echo {
 	conf := configs.GetConfig()
 
@@ -27,7 +40,7 @@ func (s *server) RegisterRoutes() *echo.Echo {
 		xmdw.SpanIDMiddleware(),
 		xmdw.JwtExtractMiddleware(),
 		xmdw.ContextMiddleware(conf.App.Name, conf.App.Env),
-		xmdw.RequestCultureMiddleware(),
+		xmdw.RequestLocaleMiddleware(),
 		xmdw.SecureMiddleware(),
 	)
 
@@ -42,6 +55,9 @@ func (s *server) RegisterRoutes() *echo.Echo {
 
 	// swagger
 	if conf.App.Env != "prod" {
+		// Set Swagger host from config
+		docs.SwaggerInfo.Host = fmt.Sprintf("localhost:%d", conf.App.Port)
+
 		e.GET("/swagger/*", echoSwagger.WrapHandler)
 	}
 
@@ -50,7 +66,7 @@ func (s *server) RegisterRoutes() *echo.Echo {
 
 	// API routes
 	api := e.Group("/v1")
-	xxxxxs.NewRoutes(api)
+	xxxxxs.NewRoutes(api, s.mongo)
 
 	return e
 }

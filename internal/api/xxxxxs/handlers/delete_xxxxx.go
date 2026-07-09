@@ -1,25 +1,23 @@
 package handlers
 
 import (
-	_ "template-api-golang/internal/api/xxxxxs/models"
-
 	"github.com/jindasoft/jinda-platform/xres"
 	"github.com/labstack/echo/v5"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-// GetXxxxxByID godoc
-// @Summary Get a xxxxx by ID
-// @Description Retrieve a xxxxx's details by its ID
+// DeleteXxxxx godoc
+// @Summary Delete a xxxxx
+// @Description Soft delete a xxxxx by ID
 // @Tags xxxxxs
 // @Accept json
 // @Produce json
 // @Param id path string true "Xxxxx ID"
-// @Success 200 {object} models.GetXxxxxByIDResponse
+// @Success 204 {object} nil
 // @Failure 400 {object} xres.BadRequestResponse "type: bad_request"
 // @Failure 422 {object} xres.UnprocessableEntityResponse "type: operation_failed"
-// @Router /xxxxxs/{id} [get]
-func (h *handler) GetXxxxxByID(c *echo.Context) error {
+// @Router /xxxxxs/{id} [delete]
+func (h *handler) DeleteXxxxx(c *echo.Context) error {
 	id := c.Param("id")
 	xxxxxID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
@@ -27,10 +25,10 @@ func (h *handler) GetXxxxxByID(c *echo.Context) error {
 	}
 
 	ctx := c.Request().Context()
-	res, err := h.service.ViewXxxxxByID(ctx, xxxxxID)
+	err = h.service.DeleteXxxxx(ctx, xxxxxID)
 	if err != nil {
 		return xres.UnprocessableEntity(c, err.Error())
 	}
 
-	return xres.Success(c, res)
+	return xres.Deleted(c)
 }

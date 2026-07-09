@@ -23,99 +23,97 @@ definitions:
         example: readiness
         type: string
     type: object
-  template-api-examples_internal_api_xxxxxs_models.GetXxxxxByIDResponse:
+  template-api-golang_internal_api_xxxxxs_models.GetXxxxxByIDResponse:
     properties:
       code:
         type: string
       created_at:
         type: string
-      id:
+      description:
         type: string
-      name:
-        type: string
-      status:
-        type: string
-      updated_at:
-        type: string
-    type: object
-  template-api-examples_internal_api_xxxxxs_models.GetXxxxxPagingResponse:
-    properties:
-      code:
-        type: string
-      created_at:
+      icon:
         type: string
       id:
         type: string
       name:
         type: string
+      ord:
+        type: integer
       status:
         type: string
       updated_at:
         type: string
     type: object
-  template-api-examples_internal_api_xxxxxs_models.PostXxxxxRequest:
+  template-api-golang_internal_api_xxxxxs_models.GetXxxxxPagingResponse:
     properties:
       code:
         type: string
-      name_en:
+      icon:
         type: string
-      name_th:
+      id:
+        type: string
+      name:
+        type: string
+    type: object
+  template-api-golang_internal_api_xxxxxs_models.PostXxxxxRequest:
+    properties:
+      code:
+        type: string
+      description:
+        type: string
+      locale:
+        type: string
+      name:
         type: string
     required:
     - code
-    - name_en
-    - name_th
+    - locale
+    - name
     type: object
-  template-api-examples_internal_api_xxxxxs_models.PostXxxxxResponse:
+  template-api-golang_internal_api_xxxxxs_models.PostXxxxxResponse:
     properties:
+      xxxxx_id:
+        type: string
+    type: object
+  template-api-golang_internal_api_xxxxxs_models.PutXxxxxRequest:
+    properties:
+      code:
+        type: string
+      description:
+        type: string
+      locale:
+        type: string
+      name:
+        type: string
+      ord:
+        type: integer
+    required:
+    - code
+    - locale
+    - name
+    - ord
+    type: object
+  template-api-golang_internal_api_xxxxxs_models.PutXxxxxResponse:
+    properties:
+      code:
+        type: string
+      description:
+        type: string
       id:
         type: string
-    type: object
-  template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse:
-    properties:
-      data:
-        $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.GetXxxxxByIDResponse'
-      message:
-        example: Successful.
+      name:
         type: string
-      success:
-        example: true
-        type: boolean
-      type:
-        example: success
+      ord:
+        type: integer
+      status:
         type: string
     type: object
-  template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse:
+  template-api-golang_internal_api_xxxxxs_models.PutXxxxxStatusRequest:
     properties:
-      data:
-        items:
-          $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.GetXxxxxPagingResponse'
-        type: array
-      message:
-        example: Successful.
+      status:
         type: string
-      meta:
-        $ref: '#/definitions/xres.PagingMeta'
-      success:
-        example: true
-        type: boolean
-      type:
-        example: success
-        type: string
-    type: object
-  template-api-examples_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse:
-    properties:
-      data:
-        $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.PostXxxxxResponse'
-      message:
-        example: Created.
-        type: string
-      success:
-        example: true
-        type: boolean
-      type:
-        example: created
-        type: string
+    required:
+    - status
     type: object
   xres.BadRequestResponse:
     properties:
@@ -137,9 +135,55 @@ definitions:
       offset:
         example: 0
         type: integer
-      total_items:
+      total:
         example: 100
         type: integer
+    type: object
+  xres.PagingResponse-array_template-api-golang_internal_api_xxxxxs_models_GetXxxxxPagingResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.GetXxxxxPagingResponse'
+        type: array
+      message:
+        example: Successful.
+        type: string
+      meta:
+        $ref: '#/definitions/xres.PagingMeta'
+      success:
+        example: true
+        type: boolean
+      type:
+        example: success
+        type: string
+    type: object
+  xres.SuccessResponse-template-api-golang_internal_api_xxxxxs_models_PostXxxxxResponse:
+    properties:
+      data:
+        $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.PostXxxxxResponse'
+      message:
+        example: Successful.
+        type: string
+      success:
+        example: true
+        type: boolean
+      type:
+        example: success
+        type: string
+    type: object
+  xres.SuccessResponse-template-api-golang_internal_api_xxxxxs_models_PutXxxxxResponse:
+    properties:
+      data:
+        $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.PutXxxxxResponse'
+      message:
+        example: Successful.
+        type: string
+      success:
+        example: true
+        type: boolean
+      type:
+        example: success
+        type: string
     type: object
   xres.UnprocessableEntityResponse:
     properties:
@@ -153,19 +197,8 @@ definitions:
         example: unprocessable_entity
         type: string
     type: object
-host: localhost:9000
 info:
-  contact:
-    email: support@swagger.io
-    name: API Support
-    url: http://www.swagger.io/support
-  description: Template API Examples
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  termsOfService: http://swagger.io/terms/
-  title: Template API
-  version: 1.0.0
+  contact: {}
 paths:
   /liveness:
     get:
@@ -194,19 +227,17 @@ paths:
       summary: Get readiness health status
       tags:
       - health
-  /v1/xxxxx:
+  /xxxxxs:
     get:
       consumes:
       - application/json
-      description: Get xxxxx records with pagination support
+      description: Get xxxxx paging
       parameters:
-      - default: 1
-        description: Page number
+      - description: Offset
         in: query
-        name: page
+        name: offset
         type: integer
-      - default: 10
-        description: Items per page
+      - description: Limit
         in: query
         name: limit
         type: integer
@@ -216,52 +247,78 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxPagingResponse'
+            $ref: '#/definitions/xres.PagingResponse-array_template-api-golang_internal_api_xxxxxs_models_GetXxxxxPagingResponse'
         "400":
-          description: 'type: bind_data_error, validation_error'
+          description: 'type: bad_request'
           schema:
             $ref: '#/definitions/xres.BadRequestResponse'
         "422":
           description: 'type: operation_failed'
           schema:
             $ref: '#/definitions/xres.UnprocessableEntityResponse'
-      summary: Get Xxxxx with pagination
+      summary: Get xxxxx paging
       tags:
-      - xxxxx
+      - xxxxxs
     post:
       consumes:
       - application/json
-      description: Create a new xxxxx record
+      description: Create a new xxxxx
       parameters:
-      - description: Create xxxxx request
+      - description: request body
         in: body
         name: request
         required: true
         schema:
-          $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.PostXxxxxRequest'
+          $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.PostXxxxxRequest'
       produces:
       - application/json
       responses:
         "201":
           description: Created
           schema:
-            $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.SwaggerPostXxxxxResponse'
+            $ref: '#/definitions/xres.SuccessResponse-template-api-golang_internal_api_xxxxxs_models_PostXxxxxResponse'
         "400":
-          description: 'type: bind_data_error, validation_error'
+          description: 'type: bad_request'
           schema:
             $ref: '#/definitions/xres.BadRequestResponse'
         "422":
-          description: Unprocessable Entity
+          description: 'type: operation_failed'
           schema:
             $ref: '#/definitions/xres.UnprocessableEntityResponse'
-      summary: Create a new Xxxxx
+      summary: Create a new xxxxx
       tags:
-      - xxxxx
-  /v1/xxxxx/{id}:
+      - xxxxxs
+  /xxxxxs/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Soft delete a xxxxx by ID
+      parameters:
+      - description: Xxxxx ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: 'type: bad_request'
+          schema:
+            $ref: '#/definitions/xres.BadRequestResponse'
+        "422":
+          description: 'type: operation_failed'
+          schema:
+            $ref: '#/definitions/xres.UnprocessableEntityResponse'
+      summary: Delete a xxxxx
+      tags:
+      - xxxxxs
     get:
       consumes:
       - application/json
-      description: Get a specific xxxxx record by ID
+      description: Retrieve a xxxxx's details by its ID
       parameters:
       - description: Xxxxx ID
         in: path
@@ -274,12 +331,85 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/template-api-examples_internal_api_xxxxxs_models.SwaggerGetXxxxxByIDResponse'
+            $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.GetXxxxxByIDResponse'
+        "400":
+          description: 'type: bad_request'
+          schema:
+            $ref: '#/definitions/xres.BadRequestResponse'
         "422":
           description: 'type: operation_failed'
           schema:
             $ref: '#/definitions/xres.UnprocessableEntityResponse'
-      summary: Get Xxxxx by ID
+      summary: Get a xxxxx by ID
       tags:
-      - xxxxx
+      - xxxxxs
+    put:
+      consumes:
+      - application/json
+      description: Update an existing xxxxx
+      parameters:
+      - description: Xxxxx ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.PutXxxxxRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/xres.SuccessResponse-template-api-golang_internal_api_xxxxxs_models_PutXxxxxResponse'
+        "400":
+          description: 'type: bad_request'
+          schema:
+            $ref: '#/definitions/xres.BadRequestResponse'
+        "422":
+          description: 'type: operation_failed'
+          schema:
+            $ref: '#/definitions/xres.UnprocessableEntityResponse'
+      summary: Update an existing xxxxx
+      tags:
+      - xxxxxs
+  /xxxxxs/{id}/status:
+    put:
+      consumes:
+      - application/json
+      description: Update a xxxxx's details by its ID
+      parameters:
+      - description: Xxxxx ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Update Xxxxx Status Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.PutXxxxxStatusRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.PutXxxxxResponse'
+        "400":
+          description: 'type: bad_request'
+          schema:
+            $ref: '#/definitions/xres.BadRequestResponse'
+        "422":
+          description: 'type: operation_failed'
+          schema:
+            $ref: '#/definitions/xres.UnprocessableEntityResponse'
+      summary: Update a xxxxx
+      tags:
+      - xxxxxs
 swagger: "2.0"

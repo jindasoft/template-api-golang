@@ -1,18 +1,13 @@
 package models
 
-import "github.com/jindasoft/jinda-platforms/xres"
-
-type SwaggerGetXxxxxByIDResponse struct {
-	xres.SuccessResponse
-
-	Data GetXxxxxByIDResponse `json:"data"`
-}
-
 type GetXxxxxByIDResponse struct {
-	ID        string `json:"id"`
-	Code      string `json:"code"`
-	Name      string `json:"name"`
-	Status    string `json:"status"`
-	CreatedAt string `json:"created_at"`
-	UpdatedAt string `json:"updated_at"`
+	ID          string `json:"id"`
+	Code        string `json:"code"`
+	Name        string `json:"name"`
+	Description string `json:"description"`
+	Icon        string `json:"icon"`
+	Ord         int16  `json:"ord"`
+	Status      string `json:"status"`
+	CreatedAt   string `json:"created_at"`
+	UpdatedAt   string `json:"updated_at"`
 }
