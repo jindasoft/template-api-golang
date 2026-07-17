@@ -3,8 +3,9 @@ package services
 import (
 	"context"
 	"template-api-golang/internal/api/xxxxxs/models"
-	"template-api-golang/internal/api/xxxxxs/repositories"
+	xxxxx "template-api-golang/internal/api/xxxxxs/repositories"
 
+	"github.com/jindasoft/jinda-platform/xdb"
 	"github.com/jindasoft/jinda-platform/xres"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -19,11 +20,11 @@ type XxxxxService interface {
 }
 
 type service struct {
-	repo repositories.XxxxxRepository
+	xxxxxRepo xxxxx.XxxxxRepository
 }
 
-func NewXxxxxService(repo repositories.XxxxxRepository) XxxxxService {
+func NewXxxxxService(mongo xdb.MongoService) XxxxxService {
 	return &service{
-		repo: repo,
+		xxxxxRepo: xxxxx.NewXxxxxRepository(mongo),
 	}
 }
