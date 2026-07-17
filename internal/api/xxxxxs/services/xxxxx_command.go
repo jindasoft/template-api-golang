@@ -58,7 +58,7 @@ func (s *service) AddXxxxx(ctx context.Context, req *models.PostXxxxxRequest) (*
 	}
 
 	// Insert the new Xxxxx into the database
-	if err := s.repo.InsertXxxxx(ctx, entity); err != nil {
+	if err := s.xxxxxRepo.InsertXxxxx(ctx, entity); err != nil {
 		additional := map[string]any{
 			"req": xutils.JsonToStringOrDefault(req),
 		}
@@ -81,7 +81,7 @@ func (s *service) EditXxxxx(ctx context.Context, oid primitive.ObjectID, req *mo
 	spanID := uuid.New()
 
 	// Check if the Xxxxx exists
-	xxxxx, err := s.repo.FindXxxxxByID(ctx, oid)
+	xxxxx, err := s.xxxxxRepo.FindXxxxxByID(ctx, oid)
 	if err != nil {
 		additional := map[string]any{
 			"req": xutils.JsonToStringOrDefault(req),
@@ -118,7 +118,7 @@ func (s *service) EditXxxxx(ctx context.Context, oid primitive.ObjectID, req *mo
 	xxxxx.Ord = req.Ord
 
 	// Save the updated Xxxxx back to the database
-	if err := s.repo.UpdateXxxxx(ctx, xxxxx); err != nil {
+	if err := s.xxxxxRepo.UpdateXxxxx(ctx, xxxxx); err != nil {
 		additional := map[string]any{
 			"req": xutils.JsonToStringOrDefault(req),
 		}
@@ -146,7 +146,7 @@ func (s *service) EditXxxxxStatus(ctx context.Context, oid primitive.ObjectID, r
 	spanID := uuid.New()
 
 	// Check if the Xxxxx exists
-	xxxxx, err := s.repo.FindXxxxxByID(ctx, oid)
+	xxxxx, err := s.xxxxxRepo.FindXxxxxByID(ctx, oid)
 	if err != nil {
 		additional := map[string]any{
 			"oid": xutils.JsonToStringOrDefault(oid),
@@ -164,7 +164,7 @@ func (s *service) EditXxxxxStatus(ctx context.Context, oid primitive.ObjectID, r
 	xxxxx.Status = status
 
 	// Save the updated Xxxxx back to the database
-	if err := s.repo.UpdateXxxxx(ctx, xxxxx); err != nil {
+	if err := s.xxxxxRepo.UpdateXxxxx(ctx, xxxxx); err != nil {
 		additional := map[string]any{
 			"oid": xutils.JsonToStringOrDefault(oid),
 		}
@@ -191,7 +191,7 @@ func (s *service) DeleteXxxxx(ctx context.Context, oid primitive.ObjectID) error
 	spanID := uuid.New()
 
 	// Check if the Xxxxx exists
-	pt, err := s.repo.FindXxxxxByID(ctx, oid)
+	pt, err := s.xxxxxRepo.FindXxxxxByID(ctx, oid)
 	if err != nil {
 		additional := map[string]any{
 			"oid": xutils.JsonToStringOrDefault(oid),
@@ -202,7 +202,7 @@ func (s *service) DeleteXxxxx(ctx context.Context, oid primitive.ObjectID) error
 	}
 
 	// Soft delete the Xxxxx
-	if err := s.repo.SoftDeleteXxxxx(ctx, pt.ID); err != nil {
+	if err := s.xxxxxRepo.SoftDeleteXxxxx(ctx, pt.ID); err != nil {
 		additional := map[string]any{
 			"oid": xutils.JsonToStringOrDefault(oid),
 		}
