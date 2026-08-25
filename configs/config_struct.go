@@ -29,5 +29,5 @@ type Server struct {
 
 type Service struct {
 	Debug    bool   `mapstructure:"debug"`
-	VaultUrl string `mapstructure:"vault_url"`
+	VaultURL string `mapstructure:"vault_url"`
 }

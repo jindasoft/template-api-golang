@@ -13,7 +13,8 @@ import (
 )
 
 type server struct {
-	port int
+	port   int
+	config *configs.Configs
 	// redis    xcache.RedisService
 	mongo xdb.MongoService
 	// postgres xdb.PostgresService
@@ -81,7 +82,8 @@ func NewServer() *http.Server {
 	// go consumer.StartConsumers(ctx)
 
 	newServer := &server{
-		port: conf.App.Port,
+		port:   conf.App.Port,
+		config: conf,
 		// redis:    redisService,
 		mongo: mongoService,
 		// postgres: postgresService,

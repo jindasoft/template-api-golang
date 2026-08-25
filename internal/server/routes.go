@@ -2,7 +2,6 @@ package server
 
 import (
 	"fmt"
-	"template-api-golang/configs"
 	"template-api-golang/docs"
 
 	xxxxxs "template-api-golang/internal/api/xxxxxs/routes"
@@ -27,26 +26,23 @@ import (
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 func (s *server) RegisterRoutes() *echo.Echo {
-	conf := configs.GetConfig()
-
 	e := echo.New()
+	conf := s.config.App
 
 	// Middleware
 	e.Use(
 		middleware.Recover(),
 		xmdw.LoggerMiddleware(),
-		xmdw.CorrelationIDMiddleware(),
 		xmdw.TraceIDMiddleware(),
-		xmdw.SpanIDMiddleware(),
 		xmdw.JwtExtractMiddleware(),
-		xmdw.ContextMiddleware(conf.App.Name, conf.App.Env),
+		xmdw.ContextMiddleware(conf.Name, conf.Env),
 		xmdw.RequestLocaleMiddleware(),
 		xmdw.SecureMiddleware(),
 	)
 
 	// validator
 	e.Validator = xmdw.NewCustomValidator(
-		xmdw.Config{Env: conf.App.Env},
+		xmdw.Config{Env: conf.Env},
 		xmdw.Opt{
 			Validations: []xmdw.Validation{
 				{Tag: "template", Handler: middlewares.ValidateTemplate}, // for templates
@@ -54,9 +50,9 @@ func (s *server) RegisterRoutes() *echo.Echo {
 		})
 
 	// swagger
-	if conf.App.Env != "prod" {
+	if conf.Env != "prod" {
 		// Set Swagger host from config
-		docs.SwaggerInfo.Host = fmt.Sprintf("localhost:%d", conf.App.Port)
+		docs.SwaggerInfo.Host = fmt.Sprintf("localhost:%d", conf.Port)
 
 		e.GET("/swagger/*", echoSwagger.WrapHandler)
 	}

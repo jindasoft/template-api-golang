@@ -33,7 +33,7 @@ func GetSecret() *Secrets {
 		xlogger.SysInfof("Fetching secrets from env")
 	} else {
 		// vault
-		vaultUrl := conf.Service.VaultUrl
+		vaultUrl := conf.Service.VaultURL
 		appName := conf.App.Name
 		kvName := conf.App.KvName
 
