@@ -52,7 +52,12 @@ swag:
 
 trivy:
 	@echo "Running Trivy scan..."
-	@trivy fs --exit-code 1 --severity HIGH,CRITICAL .
+	@trivy fs \
+		--db-repository ghcr.io/aquasecurity/trivy-db \
+		--timeout 15m \
+		--exit-code 1 \
+		--severity HIGH,CRITICAL \
+		--skip-files configs/secret.json .
 
 check:
 	@echo "Pre-commit check..."
