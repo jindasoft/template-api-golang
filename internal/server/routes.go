@@ -8,7 +8,7 @@ import (
 	"template-api-golang/internal/healthz"
 	"template-api-golang/internal/middlewares"
 
-	"github.com/jindasoft/jinda-platform/xmdw"
+	"github.com/jindasoft/template-platform-go/xmdw"
 	"github.com/labstack/echo/v5"
 	"github.com/labstack/echo/v5/middleware"
 	echoSwagger "github.com/swaggo/echo-swagger"

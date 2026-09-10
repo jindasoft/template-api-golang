@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"template-api-golang/configs"
 
-	"github.com/jindasoft/jinda-platform/xdb"
-	"github.com/jindasoft/jinda-platform/xlogger"
+	"github.com/jindasoft/template-platform-go/xdb"
+	"github.com/jindasoft/template-platform-go/xlogger"
 	"github.com/jinzhu/copier"
 )
 

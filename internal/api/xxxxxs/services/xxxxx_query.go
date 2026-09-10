@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"template-api-golang/internal/api/xxxxxs/models"
 
-	"github.com/jindasoft/jinda-platform/xdate"
-	"github.com/jindasoft/jinda-platform/xres"
-	"github.com/jindasoft/jinda-platform/xutils"
+	"github.com/jindasoft/template-platform-go/xdate"
+	"github.com/jindasoft/template-platform-go/xres"
+	"github.com/jindasoft/template-platform-go/xutils"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )

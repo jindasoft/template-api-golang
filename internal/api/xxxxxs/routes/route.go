@@ -4,7 +4,7 @@ import (
 	"template-api-golang/internal/api/xxxxxs/handlers"
 	"template-api-golang/internal/api/xxxxxs/services"
 
-	"github.com/jindasoft/jinda-platform/xdb"
+	"github.com/jindasoft/template-platform-go/xdb"
 	"github.com/labstack/echo/v5"
 )
 
