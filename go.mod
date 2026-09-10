@@ -5,9 +5,9 @@ go 1.27.0
 require (
 	github.com/go-playground/validator/v10 v10.25.0
 	github.com/google/uuid v1.6.0
-	github.com/jindasoft/jinda-platform v0.0.0-20260821084843-e24e06da7c62
+	github.com/jindasoft/template-platform-go v0.0.0-20260910050857-a48e58ac4a39
 	github.com/jinzhu/copier v0.4.0
-	github.com/labstack/echo/v5 v5.0.4
+	github.com/labstack/echo/v5 v5.2.0
 	github.com/spf13/viper v1.20.0
 	github.com/swaggo/echo-swagger v1.5.0
 	github.com/swaggo/swag v1.16.6
@@ -54,7 +54,7 @@ require (
 	github.com/jackc/puddle/v2 v2.2.2 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
-	github.com/klauspost/compress v1.16.7 // indirect
+	github.com/klauspost/compress v1.18.7 // indirect
 	github.com/leodido/go-urn v1.4.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
@@ -80,7 +80,7 @@ require (
 	go.uber.org/multierr v1.11.0 // indirect
 	go.yaml.in/yaml/v2 v2.4.3 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
-	golang.org/x/crypto v0.55.0 // indirect
+	golang.org/x/crypto v0.56.0 // indirect
 	golang.org/x/mod v0.40.0 // indirect
 	golang.org/x/net v0.58.0 // indirect
 	golang.org/x/sync v0.22.0 // indirect

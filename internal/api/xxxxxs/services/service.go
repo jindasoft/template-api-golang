@@ -5,8 +5,8 @@ import (
 	"template-api-golang/internal/api/xxxxxs/models"
 	xxxxx "template-api-golang/internal/api/xxxxxs/repositories"
 
-	"github.com/jindasoft/jinda-platform/xdb"
-	"github.com/jindasoft/jinda-platform/xres"
+	"github.com/jindasoft/template-platform-go/xdb"
+	"github.com/jindasoft/template-platform-go/xres"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 

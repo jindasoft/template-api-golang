@@ -4,8 +4,8 @@ import (
 	"log"
 	"strings"
 
-	"github.com/jindasoft/jinda-platform/xlogger"
-	"github.com/jindasoft/jinda-platform/xvault"
+	"github.com/jindasoft/template-platform-go/xlogger"
+	"github.com/jindasoft/template-platform-go/xvault"
 	"github.com/spf13/viper"
 )
 

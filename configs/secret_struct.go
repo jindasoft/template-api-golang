@@ -15,13 +15,9 @@ type Secrets struct {
 // }
 
 type MongoDB struct {
-	Host     string `mapstructure:"mongo_host"`
-	Port     int    `mapstructure:"mongo_port"`
+	URI      string `mapstructure:"mongo_uri"`
 	Database string `mapstructure:"mongo_database"`
-	Username string `mapstructure:"mongo_username"`
-	Password string `mapstructure:"mongo_password"`
 	IsDebug  bool   `mapstructure:"mongo_is_debug"`
-	Options  string `mapstructure:"mongo_options"`
 }
 
 // type Postgres struct {

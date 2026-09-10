@@ -7,9 +7,9 @@ import (
 	"template-api-golang/internal/entities"
 
 	"github.com/google/uuid"
-	"github.com/jindasoft/jinda-platform/xentities"
-	"github.com/jindasoft/jinda-platform/xlogger"
-	"github.com/jindasoft/jinda-platform/xutils"
+	"github.com/jindasoft/template-platform-go/xentities"
+	"github.com/jindasoft/template-platform-go/xlogger"
+	"github.com/jindasoft/template-platform-go/xutils"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
