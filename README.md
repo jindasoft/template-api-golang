@@ -13,3 +13,4 @@ Xxxxx ==> Module
 xxxxx ==> module
 
 make uplibdev
+make init

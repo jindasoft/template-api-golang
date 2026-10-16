@@ -4,7 +4,7 @@ import (
 	"context"
 	"template-api-golang/internal/entities"
 
-	"github.com/jindasoft/jinda-platform/xdb"
+	"github.com/jindasoft/template-platform-go/xdb"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )

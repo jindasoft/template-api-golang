@@ -7,13 +7,14 @@ import (
 	"net/http"
 	"template-api-golang/configs"
 
-	"github.com/jindasoft/jinda-platform/xdb"
-	"github.com/jindasoft/jinda-platform/xlogger"
+	"github.com/jindasoft/template-platform-go/xdb"
+	"github.com/jindasoft/template-platform-go/xlogger"
 	"github.com/jinzhu/copier"
 )
 
 type server struct {
-	port int
+	port   int
+	config *configs.Configs
 	// redis    xcache.RedisService
 	mongo xdb.MongoService
 	// postgres xdb.PostgresService
@@ -81,7 +82,8 @@ func NewServer() *http.Server {
 	// go consumer.StartConsumers(ctx)
 
 	newServer := &server{
-		port: conf.App.Port,
+		port:   conf.App.Port,
+		config: conf,
 		// redis:    redisService,
 		mongo: mongoService,
 		// postgres: postgresService,

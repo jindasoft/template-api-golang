@@ -4,8 +4,8 @@ import (
 	"log"
 	"strings"
 
-	"github.com/jindasoft/jinda-platform/xlogger"
-	"github.com/jindasoft/jinda-platform/xvault"
+	"github.com/jindasoft/template-platform-go/xlogger"
+	"github.com/jindasoft/template-platform-go/xvault"
 	"github.com/spf13/viper"
 )
 
@@ -33,7 +33,7 @@ func GetSecret() *Secrets {
 		xlogger.SysInfof("Fetching secrets from env")
 	} else {
 		// vault
-		vaultUrl := conf.Service.VaultUrl
+		vaultUrl := conf.Service.VaultURL
 		appName := conf.App.Name
 		kvName := conf.App.KvName
 

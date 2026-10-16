@@ -5,16 +5,16 @@ import (
 	"fmt"
 	"template-api-golang/internal/api/xxxxxs/models"
 
-	"github.com/jindasoft/jinda-platform/xdate"
-	"github.com/jindasoft/jinda-platform/xres"
-	"github.com/jindasoft/jinda-platform/xutils"
+	"github.com/jindasoft/template-platform-go/xdate"
+	"github.com/jindasoft/template-platform-go/xres"
+	"github.com/jindasoft/template-platform-go/xutils"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 func (s *service) ViewXxxxxByID(ctx context.Context, oid primitive.ObjectID) (*models.GetXxxxxByIDResponse, error) {
 	// Fetch the Xxxxx entity by ID
-	entity, err := s.repo.FindXxxxxByID(ctx, oid)
+	entity, err := s.xxxxxRepo.FindXxxxxByID(ctx, oid)
 	if err != nil {
 		return nil, fmt.Errorf("failed to find Xxxxx")
 	}
@@ -40,12 +40,12 @@ func (s *service) ViewXxxxxPaging(ctx context.Context, req *models.GetXxxxxPagin
 
 	filter := bson.D{}
 	sort := bson.D{{Key: "_id", Value: -1}}
-	pt, err := s.repo.FindXxxxxPaging(ctx, filter, sort, offset, limit)
+	pt, err := s.xxxxxRepo.FindXxxxxPaging(ctx, filter, sort, offset, limit)
 	if err != nil {
 		return nil, nil, fmt.Errorf("error finding xxxxx list")
 	}
 
-	total, err := s.repo.CountXxxxx(ctx, filter)
+	total, err := s.xxxxxRepo.CountXxxxx(ctx, filter)
 	if err != nil {
 		return nil, nil, fmt.Errorf("error counting xxxxx list: %w", err)
 	}

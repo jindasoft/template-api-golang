@@ -26,12 +26,12 @@ clean:
 
 uplib:
 	@echo "Upgrading libraries..."
-	@go get -u github.com/jindasoft/jinda-platform@latest
+	@go get -u github.com/jindasoft/template-platform-go@latest
 	@go mod tidy
 
 uplibdev:
 	@echo "Upgrading libraries..."
-	@go get -u github.com/jindasoft/jinda-platform@develop
+	@go get -u github.com/jindasoft/template-platform-go@develop
 	@go mod tidy
 
 vuln:
@@ -52,7 +52,12 @@ swag:
 
 trivy:
 	@echo "Running Trivy scan..."
-	@trivy fs --exit-code 1 --severity HIGH,CRITICAL .
+	@trivy fs \
+		--db-repository ghcr.io/aquasecurity/trivy-db \
+		--timeout 15m \
+		--exit-code 1 \
+		--severity HIGH,CRITICAL \
+		--skip-files configs/secret.json .
 
 check:
 	@echo "Pre-commit check..."

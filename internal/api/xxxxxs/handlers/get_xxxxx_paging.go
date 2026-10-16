@@ -3,7 +3,7 @@ package handlers
 import (
 	"template-api-golang/internal/api/xxxxxs/models"
 
-	"github.com/jindasoft/jinda-platform/xres"
+	"github.com/jindasoft/template-platform-go/xres"
 	"github.com/labstack/echo/v5"
 )
 

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"template-api-golang/internal/entities"
 
-	"github.com/jindasoft/jinda-platform/xentities"
+	"github.com/jindasoft/template-platform-go/xentities"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo/options"

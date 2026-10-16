@@ -1,6 +1,6 @@
 package entities
 
-import "github.com/jindasoft/jinda-platform/xentities"
+import "github.com/jindasoft/template-platform-go/xentities"
 
 type Xxxxx struct {
 	xentities.MongoBaseModel `json:",inline" bson:",inline"`
