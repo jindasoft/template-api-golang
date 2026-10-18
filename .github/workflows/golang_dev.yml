@@ -10,8 +10,9 @@ jobs:
     permissions:
       packages: write
       contents: read
-    uses: jindasoft/jinda-actions/.github/workflows/golang_gitops_dev.yml@v1.0.0
+    uses: jindasoft/jinda-platform-ghac/.github/workflows/golang_gitops_dev.yml@v0.1.0
     with:
-      gitops_repo: jindasoft/jinda-gitops-dev
+      gitops_repo: <GITHUB_ORG>/<GITOPS_REPO_NAME>
     secrets:
-      token: ${{ secrets.GITOPS_NONPROD }}
+      ci_token: ${{ secrets.GITOPS_CI_TOKEN }}
+      cd_token: ${{ secrets.GITOPS_CD_TOKEN }}
