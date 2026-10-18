@@ -18,22 +18,24 @@ func (s *service) AddXxxxx(ctx context.Context, req *models.PostXxxxxRequest) (*
 
 	nameLocale, err := xentities.NewMongoLocale(req.Locale, req.Name)
 	if err != nil {
+		subject := "failed to create locale"
 		additional := map[string]any{
 			"req": xutils.JsonToStringOrDefault(req),
 		}
-		xlogger.AppError(ctx, method, newMongoLocaleFailedMsg, err.Error(), &additional, &spanID)
+		xlogger.AppError(ctx, method, subject, err.Error(), &additional, &spanID)
 
-		return nil, errors.New(failedToCreateLocaleErrMsg)
+		return nil, errors.New(subject)
 	}
 
 	descLocale, err := xentities.NewMongoLocale(req.Locale, req.Description)
 	if err != nil {
+		subject := "failed to create locale"
 		additional := map[string]any{
 			"req": xutils.JsonToStringOrDefault(req),
 		}
-		xlogger.AppError(ctx, method, newMongoLocaleFailedMsg, err.Error(), &additional, &spanID)
+		xlogger.AppError(ctx, method, subject, err.Error(), &additional, &spanID)
 
-		return nil, errors.New(failedToCreateLocaleErrMsg)
+		return nil, errors.New(subject)
 	}
 
 	// Create a new Xxxxx entity
@@ -45,13 +47,14 @@ func (s *service) AddXxxxx(ctx context.Context, req *models.PostXxxxxRequest) (*
 
 	// Insert the new Xxxxx into the database
 	if err := s.xxxxxRepo.InsertXxxxx(ctx, entity); err != nil {
+		subject := "failed to insert xxxxx"
 		additional := map[string]any{
 			"req": xutils.JsonToStringOrDefault(req),
 		}
 		spanID := uuid.New()
-		xlogger.AppError(ctx, method, insertXxxxxFailedMsg, err.Error(), &additional, &spanID)
+		xlogger.AppError(ctx, method, subject, err.Error(), &additional, &spanID)
 
-		return nil, errors.New(failedToInsertXxxxxMsg)
+		return nil, errors.New(subject)
 	}
 
 	// Return the response with the inserted Xxxxx

@@ -12,19 +12,6 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-const (
-	newMongoLocaleFailedMsg    = "NewMongoLocale failed"
-	failedToCreateLocaleErrMsg = "failed to create locale"
-	findXxxxxByIDFailedMsg     = "FindXxxxxByID failed"
-	failedToFindXxxxxErrMsg    = "failed to find Xxxxx"
-	insertXxxxxFailedMsg       = "InsertXxxxx failed"
-	updateXxxxxFailedMsg       = "UpdateXxxxx failed"
-	softDeleteXxxxxFailedMsg   = "SoftDeleteXxxxx failed"
-	failedToSoftDeleteXxxxxMsg = "failed to soft delete Xxxxx"
-	failedToInsertXxxxxMsg     = "failed to insert Xxxxx"
-	failedToUpdateXxxxxMsg     = "failed to update Xxxxx"
-)
-
 func (s *service) EditXxxxx(ctx context.Context, oid primitive.ObjectID, req *models.PutXxxxxRequest) (*models.PutXxxxxResponse, error) {
 	method := "EditXxxxx"
 	spanID := uuid.New()
@@ -32,32 +19,35 @@ func (s *service) EditXxxxx(ctx context.Context, oid primitive.ObjectID, req *mo
 	// Check if the Xxxxx exists
 	xxxxx, err := s.xxxxxRepo.FindXxxxxByID(ctx, oid)
 	if err != nil {
+		subject := "failed to find xxxxx by ID"
 		additional := map[string]any{
 			"req": xutils.JsonToStringOrDefault(req),
 		}
-		xlogger.AppError(ctx, method, findXxxxxByIDFailedMsg, err.Error(), &additional, &spanID)
+		xlogger.AppError(ctx, method, subject, err.Error(), &additional, &spanID)
 
-		return nil, errors.New(failedToFindXxxxxErrMsg)
+		return nil, errors.New(subject)
 	}
 
 	nameLocale, err := xentities.NewMongoLocale(req.Locale, req.Name)
 	if err != nil {
+		subject := "failed to create name locale"
 		additional := map[string]any{
 			"req": xutils.JsonToStringOrDefault(req),
 		}
-		xlogger.AppError(ctx, method, newMongoLocaleFailedMsg, err.Error(), &additional, &spanID)
+		xlogger.AppError(ctx, method, subject, err.Error(), &additional, &spanID)
 
-		return nil, errors.New(failedToCreateLocaleErrMsg)
+		return nil, errors.New(subject)
 	}
 
 	descLocale, err := xentities.NewMongoLocale(req.Locale, req.Description)
 	if err != nil {
+		subject := "failed to create description locale"
 		additional := map[string]any{
 			"req": xutils.JsonToStringOrDefault(req),
 		}
-		xlogger.AppError(ctx, method, newMongoLocaleFailedMsg, err.Error(), &additional, &spanID)
+		xlogger.AppError(ctx, method, subject, err.Error(), &additional, &spanID)
 
-		return nil, errors.New(failedToCreateLocaleErrMsg)
+		return nil, errors.New(subject)
 	}
 
 	// Update the Xxxxx with the new values
@@ -68,13 +58,14 @@ func (s *service) EditXxxxx(ctx context.Context, oid primitive.ObjectID, req *mo
 
 	// Save the updated Xxxxx back to the database
 	if err := s.xxxxxRepo.UpdateXxxxx(ctx, xxxxx); err != nil {
+		subject := "failed to update xxxxx"
 		additional := map[string]any{
 			"req": xutils.JsonToStringOrDefault(req),
 		}
 		spanID := uuid.New()
-		xlogger.AppError(ctx, method, updateXxxxxFailedMsg, err.Error(), &additional, &spanID)
+		xlogger.AppError(ctx, method, subject, err.Error(), &additional, &spanID)
 
-		return nil, errors.New(failedToUpdateXxxxxMsg)
+		return nil, errors.New(subject)
 	}
 
 	// Return the response with the updated Xxxxx

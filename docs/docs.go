@@ -281,59 +281,6 @@ const docTemplate = `{
                     }
                 }
             }
-        },
-        "/xxxxxs/{id}/status": {
-            "put": {
-                "description": "Update a xxxxx's details by its ID",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "xxxxxs"
-                ],
-                "summary": "Update a xxxxx",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Xxxxx ID",
-                        "name": "id",
-                        "in": "path",
-                        "required": true
-                    },
-                    {
-                        "description": "Update Xxxxx Status Request",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.PutXxxxxStatusRequest"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/template-api-golang_internal_api_xxxxxs_models.PutXxxxxResponse"
-                        }
-                    },
-                    "400": {
-                        "description": "type: bad_request",
-                        "schema": {
-                            "$ref": "#/definitions/xres.BadRequestResponse"
-                        }
-                    },
-                    "422": {
-                        "description": "type: operation_failed",
-                        "schema": {
-                            "$ref": "#/definitions/xres.UnprocessableEntityResponse"
-                        }
-                    }
-                }
-            }
         }
     },
     "definitions": {
@@ -494,17 +441,6 @@ const docTemplate = `{
                 "ord": {
                     "type": "integer"
                 },
-                "status": {
-                    "type": "string"
-                }
-            }
-        },
-        "template-api-golang_internal_api_xxxxxs_models.PutXxxxxStatusRequest": {
-            "type": "object",
-            "required": [
-                "status"
-            ],
-            "properties": {
                 "status": {
                     "type": "string"
                 }

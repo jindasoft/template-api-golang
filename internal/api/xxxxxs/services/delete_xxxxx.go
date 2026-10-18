@@ -17,22 +17,24 @@ func (s *service) DeleteXxxxx(ctx context.Context, oid primitive.ObjectID) error
 	// Check if the Xxxxx exists
 	pt, err := s.xxxxxRepo.FindXxxxxByID(ctx, oid)
 	if err != nil {
+		subject := "failed to find xxxxx by ID"
 		additional := map[string]any{
 			"oid": xutils.JsonToStringOrDefault(oid),
 		}
-		xlogger.AppWarn(ctx, method, findXxxxxByIDFailedMsg, err.Error(), &additional, &spanID)
+		xlogger.AppWarn(ctx, method, subject, err.Error(), &additional, &spanID)
 
-		return errors.New(failedToFindXxxxxErrMsg)
+		return errors.New(subject)
 	}
 
 	// Soft delete the Xxxxx
 	if err := s.xxxxxRepo.SoftDeleteXxxxx(ctx, pt.ID); err != nil {
+		subject := "failed to soft delete xxxxx"
 		additional := map[string]any{
 			"oid": xutils.JsonToStringOrDefault(oid),
 		}
-		xlogger.AppError(ctx, method, softDeleteXxxxxFailedMsg, err.Error(), &additional, &spanID)
+		xlogger.AppError(ctx, method, subject, err.Error(), &additional, &spanID)
 
-		return errors.New(failedToSoftDeleteXxxxxMsg)
+		return errors.New(subject)
 	}
 
 	return nil

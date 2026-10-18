@@ -13,7 +13,7 @@ func (s *service) ViewXxxxxByID(ctx context.Context, oid primitive.ObjectID) (*m
 	// Fetch the Xxxxx entity by ID
 	entity, err := s.xxxxxRepo.FindXxxxxByID(ctx, oid)
 	if err != nil {
-		return nil, fmt.Errorf("failed to find Xxxxx")
+		return nil, fmt.Errorf("failed to find xxxxx by ID")
 	}
 
 	// Map the entity to the response model
