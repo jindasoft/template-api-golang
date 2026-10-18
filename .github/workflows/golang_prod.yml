@@ -10,10 +10,13 @@ jobs:
     permissions:
       packages: write
       contents: read
-    uses: jindasoft/jinda-actions/.github/workflows/golang_gitops_prod.yml@v1.0.0
+      id-token: write
+    uses: jindasoft/jinda-platform-ghac/.github/workflows/golang_gitops_prod.yml@v0.1.0
     with:
-      gitops_repo: mokochu/jinda-gitops-prod
+      gitops_repo: <GITHUB_ORG>/<GITOPS_REPO_NAME>
+      artifact_registry: <GCP_PROJECT_ID>/<GCP_ARTIFACT_REPOSITORY>
     secrets:
-      ci_token: ${{ secrets.GITOPS_CI_TOKEN }}
-      cd_token: ${{ secrets.GITOPS_CD_TOKEN }}
-      gcp_artifact_token: ${{ secrets.GITOPS_GCP_ARTIFACT_TOKEN }}
+      ci_token: ${{ secrets.TGR_CI_TOKEN }}
+      cd_token: ${{ secrets.TGR_CD_TOKEN }}
+      gcp_workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+      gcp_service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
