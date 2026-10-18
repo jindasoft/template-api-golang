@@ -44,7 +44,7 @@ vuln-v:
 
 sec:
 	@echo "Checking for security issues..."
-	@gosec ./...
+	@GOTOOLCHAIN=go1.27.0 gosec ./...
 
 swag:
 	@echo "Generating Swagger docs..."
