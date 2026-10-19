@@ -108,13 +108,6 @@ definitions:
       status:
         type: string
     type: object
-  template-api-golang_internal_api_xxxxxs_models.PutXxxxxStatusRequest:
-    properties:
-      status:
-        type: string
-    required:
-    - status
-    type: object
   xres.BadRequestResponse:
     properties:
       message:
@@ -375,41 +368,6 @@ paths:
           schema:
             $ref: '#/definitions/xres.UnprocessableEntityResponse'
       summary: Update an existing xxxxx
-      tags:
-      - xxxxxs
-  /xxxxxs/{id}/status:
-    put:
-      consumes:
-      - application/json
-      description: Update a xxxxx's details by its ID
-      parameters:
-      - description: Xxxxx ID
-        in: path
-        name: id
-        required: true
-        type: string
-      - description: Update Xxxxx Status Request
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.PutXxxxxStatusRequest'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/template-api-golang_internal_api_xxxxxs_models.PutXxxxxResponse'
-        "400":
-          description: 'type: bad_request'
-          schema:
-            $ref: '#/definitions/xres.BadRequestResponse'
-        "422":
-          description: 'type: operation_failed'
-          schema:
-            $ref: '#/definitions/xres.UnprocessableEntityResponse'
-      summary: Update a xxxxx
       tags:
       - xxxxxs
 swagger: "2.0"

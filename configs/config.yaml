@@ -1,6 +1,6 @@
 app:
   name: template-api-golang
-  kv_name: kv-dev
+  kv_name: template-api-dev-vault
   env: local # local, dev, sit, uat, prod
   port: 9000
 

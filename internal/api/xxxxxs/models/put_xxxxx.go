@@ -8,10 +8,6 @@ type PutXxxxxRequest struct {
 	Locale      string `json:"locale" validate:"required,locale"`
 }
 
-type PutXxxxxStatusRequest struct {
-	Status string `json:"status" validate:"required"`
-}
-
 type PutXxxxxResponse struct {
 	ID          string `json:"id"`
 	Code        string `json:"code"`

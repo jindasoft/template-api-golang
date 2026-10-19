@@ -15,7 +15,6 @@ type XxxxxService interface {
 	ViewXxxxxPaging(ctx context.Context, req *models.GetXxxxxPagingRequest) (*[]models.GetXxxxxPagingResponse, *xres.PagingMeta, error)
 	AddXxxxx(ctx context.Context, req *models.PostXxxxxRequest) (*models.PostXxxxxResponse, error)
 	EditXxxxx(ctx context.Context, oid primitive.ObjectID, req *models.PutXxxxxRequest) (*models.PutXxxxxResponse, error)
-	EditXxxxxStatus(ctx context.Context, oid primitive.ObjectID, req *models.PutXxxxxStatusRequest) (*models.PutXxxxxResponse, error)
 	DeleteXxxxx(ctx context.Context, oid primitive.ObjectID) error
 }
 
