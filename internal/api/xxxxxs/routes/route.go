@@ -18,6 +18,5 @@ func NewRoutes(api *echo.Group, mongo xdb.MongoService) {
 	g.GET("/:id", h.GetXxxxxByID)
 	g.POST("", h.PostXxxxx)
 	g.PUT("/:id", h.PutXxxxx)
-	g.PUT("/:id/status", h.PutSetActiveXxxxx)
 	g.DELETE("/:id", h.DeleteXxxxx)
 }
